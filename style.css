@@ -1,5 +1,12 @@
+h1 {
+  text-align:center;
+  color: blue;
+  font-size:20px;
+}
+
 p {
-  color: red;
   text-align: center;
+  color: red;
+  font-size:10px;
 }
   
