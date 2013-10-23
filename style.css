@@ -11,22 +11,24 @@
 .appHeader {
   height:25%;
   background-color:green;
+  opacity:0.2;
 }
 
 .appFooter {
   height:25%;
   background-color:green;
+  opacity:0.2;
 }
 
 .appCenter {
-  background-color:blue;
   height:50%;
   width:50%;
   margin:auto;
 }
 
 .appOption {
-  background-color:#955050;
+  background-color:#ffffff;
+  opacity:0.5;
   height:30%;
   width:30%;
   float:left;
