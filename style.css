@@ -17,6 +17,7 @@
 }
 
 .appCenter {
+  background-color:blue;
   height:50%;
   width:50%;
   margin:auto;
@@ -29,6 +30,7 @@
   float:left;
   border:2px solid;
   border-radius: 2px;
+  cursor:pointer;
 }
 
 body {
@@ -38,7 +40,6 @@ body {
   width:100%;
   height:100%;
   overflow:hidden;
-  cursor:pointer;
 }
 
 h1 {
