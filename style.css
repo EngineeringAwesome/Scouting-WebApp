@@ -1,9 +1,9 @@
 .appBackground {
   background-color:#950000;
-  background: -webkit-radial-gradient(#950000, #200000);
-  background: -moz-radial-gradient(#950000, #200000);
-  background: -o-radial-gradient(#950000, #200000);
-  background: radial-gradient(#950000, #200000);
+  background: -webkit-radial-gradient(#950000, #500000);
+  background: -moz-radial-gradient(#950000, #500000);
+  background: -o-radial-gradient(#950000, #500000);
+  background: radial-gradient(#950000, #500000);
   position:absolute;
   top:0px;
   left:0px;
@@ -31,7 +31,7 @@
 }
 
 .appOption {
-  background: rgba(100, 100, 100, 0.7);
+  background: rgba(255, 255, 255, 0.7);
   height:30%;
   width:30%;
   float:left;
