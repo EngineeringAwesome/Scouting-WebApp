@@ -1,9 +1,9 @@
 .appBackground {
   background-color:#950000;
-  background: -webkit-radial-gradient(#950000, #000000);
-  background: -moz-radial-gradient(#950000, #000000);
-  background: -o-radial-gradient(#950000, #000000);
-  background: radial-gradient(#950000, #000000);
+  background: -webkit-radial-gradient(#950000, #200000);
+  background: -moz-radial-gradient(#950000, #200000);
+  background: -o-radial-gradient(#950000, #200000);
+  background: radial-gradient(#950000, #200000);
   position:absolute;
   top:0px;
   left:0px;
