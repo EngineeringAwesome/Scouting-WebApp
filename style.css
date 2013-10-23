@@ -1,5 +1,6 @@
 .appBackground {
   background-color:#950000;
+  background: -webkit-radial-gradient(#950000, #000000);
   position:absolute;
   top:0px;
   left:0px;
