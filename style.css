@@ -31,8 +31,7 @@
 }
 
 .appOption {
-  background-color:#ffffff;
-  opacity:0.6;
+  background: rgba(100, 100, 100, 0.7);
   height:30%;
   width:30%;
   float:left;
