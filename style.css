@@ -14,14 +14,12 @@
 
 .appHeader {
   height:25%;
-  background-color:#ffffff;
-  opacity:0;
+  background: rgba(255,255,255,0);
 }
 
 .appFooter {
   height:25%;
-  background-color:#ffffff;
-  opacity:0;
+  background: rgba(255,255,255,0);
 }
 
 .appCenter {
