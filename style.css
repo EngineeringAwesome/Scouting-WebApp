@@ -26,12 +26,12 @@
   height:50%;
   width:50%;
   margin:auto;
-  background-color:blue;
+  background-color:green;
   background-image: url(http://www.team3550.org/wp-content/uploads/2013/10/beta-logo-red.png);
   background-repeat:no-repeat;
   background-attachment:fixed;
   background-position:center;
-  background-size: 100% Auto;
+  background-size: 50% Auto;
 }
 
 .appOption {
