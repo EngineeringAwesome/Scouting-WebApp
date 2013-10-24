@@ -29,12 +29,12 @@
 }
 
 .appOption {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.2);
   height:30%;
   width:30%;
   float:left;
   border:2px solid;
-  border-radius: 2px;
+  border-radius: 12px;
   cursor:pointer;
 }
 
