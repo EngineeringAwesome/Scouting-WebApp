@@ -2,17 +2,31 @@
 <html>
 
 <head>
+  <link rel="stylesheet" type="text/css" href="style.css">
   <title> Scouting App </title>
   
 </head>
 
 <body>
-  <p>  Add links to: </p> </br>
-  <p>  Team info </p> </br>
-  <p>  Match info </p> </br>
-  <p>  Settings </p> </br>
-  <p>  Statistics </p>
-  <p> hey Phani </p>
-</body
+
+  <div class="appBackground">
+    <div class="appHeader"></div>
+    <div class="appCenter">
+        <div class="appOption" onclick="location.href='teams.html';"> 
+          <span class="appOptionText"> Teams </span> </div>
+        <div class="appOption" onclick="location.href='matches.html';">
+          <span class="appOptionText"> Matches </span> </div>
+        <div class="appOption" onclick="location.href='settings.html';">
+          <span class="appOptionText"> Settings </span> </div>
+        <div class="appOption" onclick="location.href='stats.html';">
+          <span class="appOptionText"> Statistics </span> </div>
+        <div class="appOption" onclick="location.href='alliances.html';">
+          <span class="appOptionText"> Alliance Selection </span> </div>
+        <div class="appOption" onclick="location.href='fieldMap.html';">
+          <span class="appOptionText"> Field Map </span> </div>
+    </div>
+    <div class="appFooter"></div>
+  </div>
+</body>
 
 </html>
