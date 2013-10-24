@@ -1,9 +1,9 @@
 .appBackground {
   background-color:#950000;
-  background: -webkit-radial-gradient(#950000, #500000);
-  background: -moz-radial-gradient(#950000, #500000);
-  background: -o-radial-gradient(#950000, #500000);
-  background: radial-gradient(#950000, #500000);
+  background: -webkit-radial-gradient(#950000 75%, #000000 100%);
+  background: -moz-radial-gradient(#950000 75%, #000000 100%);
+  background: -o-radial-gradient(#950000 75%, #000000 100%);
+  background: radial-gradient(#950000 75%, #000000 100%);
   position:absolute;
   top:0px;
   left:0px;
@@ -26,12 +26,12 @@
   height:50%;
   width:50%;
   margin:auto;
-  background-color:green;
+  background-color:blue;
   background-image: url(http://www.team3550.org/wp-content/uploads/2013/10/beta-logo-red.png);
   background-repeat:no-repeat;
   background-attachment:fixed;
   background-position:center;
-  background-size: 50% Auto;
+  background-size: contain;
 }
 
 .appOption {
