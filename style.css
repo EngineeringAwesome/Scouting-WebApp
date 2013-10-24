@@ -29,6 +29,9 @@
   background-color:blue;
   background-image: url(http://www.team3550.org/wp-content/uploads/2013/10/beta-logo-red.png);
   background-size: Auto 100%;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center;
 }
 
 .appOption {
