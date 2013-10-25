@@ -43,7 +43,6 @@
   background-repeat:no-repeat;
   background-position:center;
   font-size: 100%;
-  text-align:right;
   
 }
 
@@ -57,7 +56,9 @@
   margin: .5%;
   cursor:pointer;
   font-family:"arial", sans-serif;
+  text-align:left;
   box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.4), -5px 5px 40px rgba(0, 0, 0, 0.4);
+  //text-shadow: 2px 2px 3px #888888, -2px -2px 3px #888888;
 }
 
 body {
