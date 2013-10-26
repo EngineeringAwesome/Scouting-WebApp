@@ -26,16 +26,23 @@
 			teamCanHang,
 			teamCanBasket,
 			teamCanFlag,
-			teamCanIR,
+			teamCanIR;
 	</script>
 	
 	<script>
 		function submitTeamData() {
 			alert("submitting data");
+			tempTeam = new Object();
+			tempTeam.name = document.getElementsByName("name")[0].value;
+			tempTeam.number = document.getElementsByName("number")[0].value;
+			
+			teamList.push(tempTeam);
+			localStorage.setItem("teamList", JSON.stringify(teamList));
 		}
 	</script>
 </head>
 <body>
+	<a href="teams.html"> Teams page</a>
 	<form>
 		<p> Name: <input type="text" name="name"> </p>
 		<p> Number: <input type="number" name="number"> </p>
