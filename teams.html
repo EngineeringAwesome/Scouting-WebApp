@@ -3,15 +3,50 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script> 
+	
+	var hasWebStorage = false;
+	if(typeof(Storage) !== "undefined") {
+		console.log("local storage supported");
+		hasWebStorage = true;
+	}
+	else {
+		console.log("Oh-Noes: local storage unsupported!");
+	}
+	
+	var teamList = new Array();
+	if(hasWebStorage) {
+		var retrievedObject = localStorage.getItem('teamList');
+		console.log('retrievedObject: ', JSON.parse(retrievedObject));
+		teamList = JSON.parse(retrievedObject);
+	}
+	
+	localStorage.setItem('teamList', JSON.stringify(teamList));
+	
+  </script>
+  
   <title> team info </title>
 </head>
 
 <body>
-
   <div class="appBackgroundGradient"></div>
   <div class="appBackground">
-    <div class="appHeader"></div>
+	<div id="jsError"> <h1> Please Check the console for errors </h1></div>
+	<script> if(hasWebStorage) {document.getElementById("jsError").style.display="none";} </script>
+	
+    <div class="appHeader">
+		<a href="addTeam.html">Add a team</a>
+    </div>
     <div class="appCenter">
+		<script> 
+		  for(var i=0; i <teamList.length; i++) {
+			var teamDiv = "<div class='appTeam'>"
+			teamDiv += "<p> Name: " + teamList[i].name + "</p>";
+			teamDiv += "<p> Number: " + teamList[i].number + "</p>";
+			teamDiv += "</div>";
+			document.write(teamDiv);
+		  }
+    	</script>
     	<div class="appOption" style="height: 100%">	
         <h1> Team Information</h1>
   			<p> contains team information throughout the day </p>
@@ -23,6 +58,7 @@
     </div>
     <div class="appFooter"></div>
   </div>
+  
 </body>
 
 </html>

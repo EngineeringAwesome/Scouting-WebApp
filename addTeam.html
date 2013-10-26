@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title> Add a Team</title>
+	<script>	
+	  var hasWebStorage = false;
+	  if(typeof(Storage) !== "undefined") {
+	  	console.log("local storage supported");
+	  	hasWebStorage = true;
+	  }
+	  else {
+		console.log("Oh-Noes: local storage unsupported!");
+	  }
+	  
+	  //retireve the team list
+	  var teamList = new Array();
+	  if(hasWebStorage) {
+		var retrievedObject = localStorage.getItem('teamList');
+		console.log('retrievedObject: ', JSON.parse(retrievedObject));
+		teamList = JSON.parse(retrievedObject);
+	  }	
+	  var teamName,
+			teamNumber,
+			teamCountry,
+			teamCanHang,
+			teamCanBasket,
+			teamCanFlag,
+			teamCanIR,
+	</script>
+	
+	<script>
+		function submitTeamData() {
+			alert("submitting data");
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<p> Name: <input type="text" name="name"> </p>
+		<p> Number: <input type="number" name="number"> </p>
+		<p> Can Hang? <input type="checkbox" name="canHang"> </p>
+		<p> Can Place in Baskets? <input type="checkbox" name="canBasket"> </p>
+		<p> Can Raise the Flag? <input type="checkbox" name ="canFlag"> </p>
+		<p> Can Detect IR? <input type="checkbox" name="canIR"> </p>
+	</form>
+	<button onclick="submitTeamData()"> hey </button>
+	<button onclick="index.html">Try it</button>
+</body>
+</html>

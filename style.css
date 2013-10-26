@@ -55,10 +55,19 @@
   border-radius: 2% 2% / 25% 25%;
   margin: .5%;
   cursor:pointer;
-  font-family:"arial", sans-serif;
   text-align:left;
   box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.4), -5px 5px 40px rgba(0, 0, 0, 0.4);
   //text-shadow: 2px 2px 3px #888888, -2px -2px 3px #888888;
+}
+
+.appTeam {
+  background: rgba(200, 200, 200, 0.9);
+  width:100%;
+  text-align:center;
+}
+
+#jsError {
+  background-color:red;
 }
 
 body {
@@ -69,6 +78,7 @@ body {
   height:100%;
   overflow:hidden;
   font-size: 5vh;
+  font-family:"arial", sans-serif;
 }
 
 h1 {
