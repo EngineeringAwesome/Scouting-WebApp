@@ -7,6 +7,7 @@
 	  var hasWebStorage = false;
 	  if(typeof(Storage) !== "undefined") {
 	  	console.log("local storage supported");
+	  	console.log("updated");
 	  	hasWebStorage = true;
 	  }
 	  else {
@@ -37,6 +38,7 @@
 			tempTeam.number = document.getElementsByName("number")[0].value;
 			
 			teamList.push(tempTeam);
+			console.log(teamList);
 			localStorage.setItem("teamList", JSON.stringify(teamList));
 		}
 	</script>
