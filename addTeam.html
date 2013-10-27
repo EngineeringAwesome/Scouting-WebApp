@@ -26,19 +26,14 @@
 		  teamList = new Array();
 	  }
 	  
-	  var teamName,
-			teamNumber,
-			teamCountry,
-			teamCanHang,
-			teamCanBasket,
-			teamCanFlag,
-			teamCanIR;
 
 	  function submitTeamData() {
 		alert("submitting data");
 		tempTeam = new Object();
 		tempTeam.name = document.getElementsByName("name")[0].value;
 		tempTeam.number = document.getElementsByName("number")[0].value;
+		tempTeam.canHang = document.getElementsByName("canHang")[0].value;
+		tempTeam.canIR = document.getElementsByName("canIR")[0].value;
 		
 		teamList.push(tempTeam);
 		console.log(teamList);
