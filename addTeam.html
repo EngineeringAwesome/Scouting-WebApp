@@ -7,7 +7,7 @@
 	  var hasWebStorage = false;
 	  if(typeof(Storage) !== "undefined") {
 	  	console.log("local storage supported");
-	  	console.log("updated2");
+	  	console.log("updated3");
 	  	hasWebStorage = true;
 	  }
 	  else {
@@ -28,20 +28,17 @@
 			teamCanBasket,
 			teamCanFlag,
 			teamCanIR;
-	  teamList.push("a");
-	</script>
-	
-	<script>
-		function submitTeamData() {
-			alert("submitting data");
-			tempTeam = new Object();
-			tempTeam.name = document.getElementsByName("name")[0].value;
-			tempTeam.number = document.getElementsByName("number")[0].value;
-			
-			teamList.push(tempTeam);
-			console.log(teamList);
-			localStorage.setItem("teamList", JSON.stringify(teamList));
-		}
+
+	  function submitTeamData() {
+		alert("submitting data");
+		tempTeam = new Object();
+		tempTeam.name = document.getElementsByName("name")[0].value;
+		tempTeam.number = document.getElementsByName("number")[0].value;
+		
+		teamList.push(tempTeam);
+		console.log(teamList);
+		localStorage.setItem("teamList", JSON.stringify(teamList));
+	  }
 	</script>
 </head>
 <body>
