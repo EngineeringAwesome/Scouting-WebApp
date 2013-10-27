@@ -7,7 +7,7 @@
 	  var hasWebStorage = false;
 	  if(typeof(Storage) !== "undefined") {
 	  	console.log("local storage supported");
-	  	console.log("updated4");
+	  	console.log("updated5");
 	  	hasWebStorage = true;
 	  }
 	  else {
@@ -15,12 +15,17 @@
 	  }
 	  
 	  //retireve the team list
-	  var teamList = new Array();
+	  var teamList;
 	  if(hasWebStorage) {
 		var retrievedObject = localStorage.getItem('teamList');
 		console.log('retrievedObject: ', JSON.parse(retrievedObject));
 		teamList = JSON.parse(retrievedObject);
 	  }	
+	  if (teamList === null) {
+		  console.log("nothing was there");
+		  teamList = new Array();
+	  }
+	  
 	  var teamName,
 			teamNumber,
 			teamCountry,
