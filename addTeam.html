@@ -28,12 +28,11 @@
 	  
 
 	  function submitTeamData() {
-		alert("submitting data");
 		tempTeam = new Object();
 		tempTeam.name = document.getElementsByName("name")[0].value;
 		tempTeam.number = document.getElementsByName("number")[0].value;
-		tempTeam.canHang = document.getElementsByName("canHang")[0].value;
-		tempTeam.canIR = document.getElementsByName("canIR")[0].value;
+		tempTeam.canHang = document.getElementsByName("canHang")[0].checked;
+		tempTeam.canIR = document.getElementsByName("canIR")[0].checked;
 		
 		teamList.push(tempTeam);
 		console.log(teamList);
@@ -43,15 +42,40 @@
 </head>
 <body>
 	<a href="teams.html"> Teams page</a>
-	<form>
-		<p> Name: <input type="text" name="name"> </p>
-		<p> Number: <input type="number" name="number"> </p>
-		<p> Can Hang? <input type="checkbox" name="canHang"> </p>
-		<p> Can Place in Baskets? <input type="checkbox" name="canBasket"> </p>
-		<p> Can Raise the Flag? <input type="checkbox" name ="canFlag"> </p>
-		<p> Can Detect IR? <input type="checkbox" name="canIR"> </p>
-	</form>
-	<button onclick="submitTeamData()"> hey </button>
-	<button onclick="index.html">Try it</button>
+	<div class="appAddTeam appTeamInfo">
+		<h5> Team Info</h5>
+		<form>
+			<p>Name: <input type="text" name="name"></p>
+			<p>Number: <input type="number" name="number"></p>
+			<p>Organization: <input type="text" name="org"></p>
+			<p>City: <input type="text" name="city"></p>
+			<p>State: <input type="text" name="state"></p>
+			<p>Country <input type="text" name="country"></p>
+		</form>
+	</div>
+	<div class="appAddTeam appAutonomous">
+		<h5> Autonomous </h5>
+		<form>
+			<p>Detects IR? <input type="checkbox" name="canIR"></p>
+			<p>Parks on Bridge <input type="checkbox" name="canBridge"></p>
+		</form>
+	</div>
+	<div class="appAddTeam appTeleop">
+		<h5> Teleop </h5>
+	</div>
+	<div class="appAddTeam appEndGame">
+		<h5> End Game </h5>
+		<form>
+			<p>Can Hang? <input type="checkbox" name="canHang"></p>
+			<p>Raises Flag: <select name="flagLevel">
+							<option value="no"> Doesn't Raise</option>
+							<option value="low"> Low Raise</option>
+							<option value="high"> High Raise</option>
+						</select> </p>
+			<p>Raise Time: <input type="number" name="flagTime"></p>
+		</form>
+	</div>
+	
+	<button onclick="submitTeamData()"> Add Team </button>
 </body>
 </html>

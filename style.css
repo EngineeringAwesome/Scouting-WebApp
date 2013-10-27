@@ -66,6 +66,22 @@
   text-align:center;
 }
 
+.appAddTeam{
+	border:5px solid;
+	border-radius: 10px;
+}
+
+div.appAddTeam > h5 {
+	margin:0px 0px;
+	background-color:white;
+}
+
+div.appAddTeam  p {
+	margin:0px;
+	background-color:white;
+	text-align:left;
+}
+
 #jsError {
   background-color:red;
 }
