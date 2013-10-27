@@ -25,12 +25,31 @@
 	
   </script>
   
+  <script>
+	
+	function displayTeamList() {
+		for(var i=0; i<teamList.length; i++) {
+			var teamDiv = "<div class='appTeam' onclick='goToSelectedTeam("+teamList[i].number+")'>";
+			teamDiv += "<p> Name: " + teamList[i].name + "</p>";
+			teamDiv += "<p> Number: " + teamList[i].number + "</p>";
+			teamDiv += "</div>";
+			document.write(teamDiv);
+		  }
+	}
+	function goToSelectedTeam(teamNumber) {
+		localStorage.setItem('selectedTeamNumber', teamNumber);
+		location.href = 'selectedTeam.html';
+	}
+		
+  </script>
+  
   <title> team info </title>
 </head>
 
 <body>
   <div class="appBackgroundGradient"></div>
   <div class="appBackground">
+	  
 	<div id="jsError"> <h1> Please Check the console for errors </h1></div>
 	<script> if(hasWebStorage) {document.getElementById("jsError").style.display="none";} </script>
 	
@@ -38,15 +57,9 @@
 		<a href="addTeam.html">Add a team</a>
     </div>
     <div class="appCenter">
-		<script>	 
-		  for(var i=0; i<teamList.length; i++) {
-			var teamDiv = "<div class='appTeam'>"
-			teamDiv += "<p> Name: " + teamList[i].name + "</p>";
-			teamDiv += "<p> Number: " + teamList[i].number + "</p>";
-			teamDiv += "</div>";
-			document.write(teamDiv);
-		  }
-    	</script>
+			 
+		<script> displayTeamList();</script>
+ 
     	<div class="appOption" style="height: 100%">	
         <h1> Team Information</h1>
   			<p> contains team information throughout the day </p>

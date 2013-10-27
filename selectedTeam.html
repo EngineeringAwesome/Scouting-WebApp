@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<title> Selected Team</title>
+	<script>
+		var hasWebStorage = false;
+		if(typeof(Storage) !== undefined) {
+			console.log("has localStorage");
+			hasWebStorage = true;
+		}
+		else {
+			console.log("Oh-Noes: local storage unsupported!");
+		}
+		
+		//retrieve team list
+		var teamList;
+		if(hasWebStorage) {
+			var retrievedObject = localStorage.getItem('teamList');
+			console.log('retrievedObject: ', JSON.parse(retrievedObject));
+			teamList = JSON.parse(retrievedObject);
+		}	
+		if (teamList === null) {
+			console.log("nothing was there");
+			teamList = new Array();
+		}
+	</script>
+	
+	<script>
+		function findByNumber(sourceArray, findNumber) {
+			for(var i = 0; i < sourceArray.length; i++) {
+				if(sourceArray[i].number == findNumber) {
+					return sourceArray[i];
+				}
+			}
+			throw "Couldn't find team number: " + findNumber;
+		}
+	</script>
+</head>
+<body>
+	<div class="appSelectedTeam">
+		<p id="selectedName">Name: </p>
+		<p id="selectedNumber">Number: </p>
+		<p id="selectedOrg"> School/ Organization: </p>
+		<p id="selectedCity"> City: </p>
+		<p id="selectedState"> State: </p>
+		<p id="selectedCountry"> Country: </p>
+		<p id="selectedCanBridge"> Parks on Bridge?: </p>
+		<p id="selectedCanIr"> Detects IR Beacon?: </p>
+	</div>
+	<script>
+		var selectedTeamNumber = localStorage.getItem('selectedTeamNumber');
+		var selectedTeam = findByNumber(teamList, selectedTeamNumber);
+		console.log(selectedTeam);
+		document.getElementById("selectedName").innerHTML += selectedTeam.name;
+		document.getElementById("selectedNumber").innerHTML += selectedTeam.number;
+		document.getElementById("selectedOrg").innerHTML += selectedTeam.org;
+		document.getElementById("selectedCity").innerHTML += selectedTeam.city;
+		document.getElementById("selectedState").innerHTML += selectedTeam.state;
+		document.getElementById("selectedCountry").innerHTML += selectedTeam.country;
+		document.getElementById("selectedCanBridge").innerHTML += selectedTeam.canBridge;
+		document.getElementById("selectedCanIR").innerHTML += selectedTeam.canIR;
+		
+	</script>
+
+</body>
+</html>
