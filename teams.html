@@ -24,9 +24,9 @@
   <script>
 	function displayTeamList() {
 		for(var i=0; i<teamList.length; i++) {
-			var teamDiv = "<div class='appTeam' onclick='goToSelectedTeam("+teamList[i].number+")'>";
-			teamDiv += "<p> Name: " + teamList[i].name + "</p>";
-			teamDiv += "<p> Number: " + teamList[i].number + "</p>";
+			var teamDiv = "<div class='col-6 col-sm-6 col-lg-4' onclick='goToSelectedTeam("+teamList[i].number+")'>";
+			teamDiv += "<h2>" + teamList[i].name + ", " + teamList[i].number + "</h2>";
+			teamDiv += "<p> brief info on this team </p>";
 			teamDiv += "</div>";
 			document.write(teamDiv);
 		  }
@@ -75,6 +75,13 @@
     <h1> Competing Teams </h1>
     <a href="addTeam.html">Add a team</a>
     
+    <div class="jumbotron">
+    	<h1>Competing Teams</h1>
+    	<a href="addTeam.html">Add a team</a>
+    </div>
+    <div class="row">
+    	<!-- add teams here -->
+    </div>
     <script> displayTeamList();</script>
   </div>
 
