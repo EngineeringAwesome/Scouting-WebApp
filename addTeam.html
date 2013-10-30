@@ -41,6 +41,7 @@
 	teamList.push(tempTeam);
 	console.log(teamList);
 	localStorage.setItem("teamList", JSON.stringify(teamList));
+	location.href="teams.html";
     }
   </script>
 	
@@ -124,33 +125,40 @@
       	</label>
       </div>
     </form>
+    
+    <h3> Teleop Info</h3>
+    <form role="form">
+    	
+    </form>
+    
+    <h3> End Game Info </h3>
+    <form role="form">
+      <div class="checkbox">
+      	<label>
+      	  <input type="checkbox" name="canHang">
+      	  Can Hang at the end?
+      	</label>
+      </div>
+      <div class="">
+      	<label for="flagLevel">Flag Level</label>
+      	<select name="flagLevel">
+      	  <option value=false> Doesn't Raise</option>
+	  <option value="low"> Low Raise</option>
+	  <option value="high"> High Raise</option>
+      	</select>
+      </div>
+      <div class="form-group">
+      	<label for="number">Flag Raise Time</label>
+      	<input type="number" class="form-control" name="flagTime" placeholder="Team number">
+      </div>
+    </form>
+    
+    <button type="button" class="btn btn-primary" onclick="submitTeamData()">Add Team</button>
   </div>
 	<!--
 	<a href="teams.html"> Teams page</a>
-	<div class="appAddTeam appTeamInfo">
-	</div>
-	<div class="appAddTeam appAutonomous">
-		<h5> Autonomous </h5>
-		<form>
-			<p>Detects IR? <input type="checkbox" name="canIR"></p>
-			<p>Parks on Bridge <input type="checkbox" name="canBridge"></p>
-		</form>
-	</div>
-	<div class="appAddTeam appTeleop">
-		<h5> Teleop </h5>
-	</div>
-	<div class="appAddTeam appEndGame">
-		<h5> End Game </h5>
-		<form>
-			<p>Can Hang? <input type="checkbox" name="canHang"></p>
-			<p>Raises Flag: <select name="flagLevel">
-							<option value=false> Doesn't Raise</option>
-							<option value="low"> Low Raise</option>
-							<option value="high"> High Raise</option>
-						</select> </p>
-			<p>Raise Time: <input type="number" name="flagTime"></p>
-		</form>
-	</div>
+
+
 	
 	<button onclick="submitTeamData()"> Add Team </button>
 	-->
