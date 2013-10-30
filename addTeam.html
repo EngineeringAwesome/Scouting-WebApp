@@ -78,7 +78,10 @@
   </div>
   
   <div class="container">
-    <h1>Add a team</h1>
+    <div class="jumbotron">
+      <h1>Add a team</h1>
+    </div>
+    <h3> Team info </h3>
     <form role="form">
       <div class="form-group">
         <label for="name">Name</label>
@@ -105,19 +108,26 @@
       	<input type="text" class="form-control" name="country" placeholder="Team Country">
       </div>
     </form>
+    
+    <h3> Autonomous Info</h3>
+    <form role="form">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="canIR">
+      	  Detects IR Beacon?
+        </label>
+      </div>
+      <div class="checkbox">
+      	<label>
+      	  <input type="checkbox" name="canBridge">
+      	  Can park on bridge?
+      	</label>
+      </div>
+    </form>
   </div>
 	<!--
 	<a href="teams.html"> Teams page</a>
 	<div class="appAddTeam appTeamInfo">
-		<h5> Team Info</h5>
-		<form>
-			<p>Name: <input type="text" name="name"></p>
-			<p>Number: <input type="number" name="number"></p>
-			<p>Organization: <input type="text" name="org"></p>
-			<p>City: <input type="text" name="city"></p>
-			<p>State: <input type="text" name="state"></p>
-			<p>Country <input type="text" name="country"></p>
-		</form>
 	</div>
 	<div class="appAddTeam appAutonomous">
 		<h5> Autonomous </h5>
