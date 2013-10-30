@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="style.css">
   <script> 
-	
 	var hasWebStorage = false;
 	if(typeof(Storage) !== "undefined") {
 		console.log("local storage supported");
 		hasWebStorage = true;
-	}
-	else {
+	} else {
 		console.log("Oh-Noes: local storage unsupported!");
 	}
 	
@@ -22,11 +19,9 @@
 	}
 	
 	localStorage.setItem('teamList', JSON.stringify(teamList));
-	
   </script>
   
   <script>
-	
 	function displayTeamList() {
 		for(var i=0; i<teamList.length; i++) {
 			var teamDiv = "<div class='appTeam' onclick='goToSelectedTeam("+teamList[i].number+")'>";
@@ -40,14 +35,49 @@
 		localStorage.setItem('selectedTeamNumber', teamNumber);
 		location.href = 'selectedTeam.html';
 	}
-		
   </script>
   
+  <meta charset="utf-8">
+  <meta name="viewport" width="device-width, initial-scale = 1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shorcut icon" href="bootstrap-3.0.0/assets/ico/favicon.png">
+  
   <title> team info </title>
+  
+  <!-- Bootstrap Core Css -->
+  <link rel="stylesheet" href="bootstrap-3.0.0/dist/css/bootstrap.css">
 </head>
 
 <body>
-  <div class="appBackgroundGradient"></div>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Scouting App</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"> <a href="#"> Teams </a></li>
+          <li> <a href="settings.html">Settings </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <h1> Competing Teams </h1>
+    <a href="addTeam.html">Add a team</a>
+    
+    <script> displayTeamList();</script>
+  </div>
+
+<!--  <div class="appBackgroundGradient"></div>
   <div class="appBackground">
 	  
 	<div id="jsError"> <h1> Please Check the console for errors </h1></div>
@@ -70,7 +100,7 @@
       </div>
     </div>
     <div class="appFooter"></div>
-  </div>
+  </div> -->
   
 </body>
 
