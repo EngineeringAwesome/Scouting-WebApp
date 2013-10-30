@@ -1,52 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<title> Add a Team</title>
-	<script>	
-	  var hasWebStorage = false;
-	  if(typeof(Storage) !== "undefined") {
-	  	console.log("local storage supported");
-	  	hasWebStorage = true;
-	  }
-	  else {
-		console.log("Oh-Noes: local storage unsupported!");
-	  }
-	  
-	  //retireve the team list
-	  var teamList;
-	  if(hasWebStorage) {
-		var retrievedObject = localStorage.getItem('teamList');
-		console.log('retrievedObject: ', JSON.parse(retrievedObject));
-		teamList = JSON.parse(retrievedObject);
-	  }	
-	  if (teamList === null) {
-		  console.log("nothing was there");
-		  teamList = new Array();
-	  }
-	  
+  <script>	
+    var hasWebStorage = false;
+    if(typeof(Storage) !== "undefined") {
+    	console.log("local storage supported");
+    	hasWebStorage = true;
+    }
+    else {
+  	console.log("Oh-Noes: local storage unsupported!");
+    }
+  
+    //retireve the team list
+    var teamList;
+    if(hasWebStorage) {
+  	var retrievedObject = localStorage.getItem('teamList');
+  	console.log('retrievedObject: ', JSON.parse(retrievedObject));
+  	teamList = JSON.parse(retrievedObject);
+    }	
+    if (teamList === null) {
+  	  console.log("nothing was there");
+  	  teamList = new Array();
+    }
+  
 
-	  function submitTeamData() {
-		tempTeam = new Object();
-		tempTeam.name = document.getElementsByName("name")[0].value;
-		tempTeam.number = document.getElementsByName("number")[0].value;
-		tempTeam.org = document.getElementsByName("org")[0].value;
-		tempTeam.city = document.getElementsByName("city")[0].value;
-		tempTeam.state = document.getElementsByName("state")[0].value;
-		tempTeam.country = document.getElementsByName("country")[0].value;
-		tempTeam.canIR = document.getElementsByName("canIR")[0].checked;
-		tempTeam.canBridge = document.getElementsByName("canBridge")[0].checked;
-		tempTeam.canHang = document.getElementsByName("canHang")[0].checked;
-		tempTeam.flagLevel = document.getElementsByName("flagLevel")[0].value;
-		tempTeam.flagTime = document.getElementsByName("flagTime")[0].value;
+    function submitTeamData() {
+  	tempTeam = new Object();
+  	tempTeam.name = document.getElementsByName("name")[0].value;
+  	tempTeam.number = document.getElementsByName("number")[0].value;
+  	tempTeam.org = document.getElementsByName("org")[0].value;
+  	tempTeam.city = document.getElementsByName("city")[0].value;
+  	tempTeam.state = document.getElementsByName("state")[0].value;
+  	tempTeam.country = document.getElementsByName("country")[0].value;
+ 	tempTeam.canIR = document.getElementsByName("canIR")[0].checked;
+	tempTeam.canBridge = document.getElementsByName("canBridge")[0].checked;
+	tempTeam.canHang = document.getElementsByName("canHang")[0].checked;
+	tempTeam.flagLevel = document.getElementsByName("flagLevel")[0].value;
+	tempTeam.flagTime = document.getElementsByName("flagTime")[0].value;
 		
-		teamList.push(tempTeam);
-		console.log(teamList);
-		localStorage.setItem("teamList", JSON.stringify(teamList));
-	  }
-	</script>
+	teamList.push(tempTeam);
+	console.log(teamList);
+	localStorage.setItem("teamList", JSON.stringify(teamList));
+    }
+  </script>
+	
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shorcut icon" href="bootstrap-3.0.0/assets/ico/favicon.png">
+        
+  <title> Add a Team</title>
+	
+  <!-- Bootstrap Core Css -->
+  <link href="bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style> body { padding-top: 50px;} </style>
 </head>
 <body>
+  <div class="navbar navbar-invers navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Scouting App</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li> <a href="teams.html"> Teams </a></li>
+          <li class="active"> <a href="settings.html">Settings </a></li>
+        </ul>
+      </div>
+    </div>	
+  </div>
+  
+  <div class="container">
+    <h1>Add a team</h1>
+    <div class="input-group">
+      <p>Name: <input type="text" name="name"></p>
+      <p>Number: <input type="number" name="number"></p>
+      <p>Organization: <input type="text" name="org"></p>
+      <p>City: <input type="text" name="city"></p>
+      <p>State: <input type="text" name="state"></p>
+      <p>Country <input type="text" name="country"></p>
+    </div>
+  </div>
+	<!--
 	<a href="teams.html"> Teams page</a>
 	<div class="appAddTeam appTeamInfo">
 		<h5> Team Info</h5>
@@ -83,5 +125,8 @@
 	</div>
 	
 	<button onclick="submitTeamData()"> Add Team </button>
+	-->
+  <script src="bootstrap-3.0.0/assets/js/jquery.js"></script>
+  <script src="bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
