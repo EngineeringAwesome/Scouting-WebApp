@@ -24,10 +24,11 @@
   <script>
 	function displayTeamList() {
 		for(var i=0; i<teamList.length; i++) {
-			var teamDiv = "<div class='col-6 col-sm-6 col-lg-4' onclick='goToSelectedTeam("+teamList[i].number+")'>";
+			var teamDiv = "<div class='col-4 col-sm-4 col-lg-4' onclick='goToSelectedTeam("+teamList[i].number+")'>";
+			teamDiv += "<div class='thumbnail text-center'>"
 			teamDiv += "<h2>" + teamList[i].name + ", " + teamList[i].number + "</h2>";
 			teamDiv += "<p> brief info on this team </p>";
-			teamDiv += "</div>";
+			teamDiv += "</div></div>";
 			document.write(teamDiv);
 		  }
 	}
