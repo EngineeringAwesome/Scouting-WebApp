@@ -59,7 +59,66 @@
         </ul>
       </div>
     </div>
-  </div>	
+  </div>
+  
+  <div class="container">
+	  <h1 class="text-center"> All Competing Teams</h1>
+	  <table class="table table-bordered">
+		  <thead>
+			<tr>
+			  <th> Team</th>
+			  <th> Parks on Bridge?</th>
+			  <th> Detects IR?</th>
+			  <th> Places Blocks?</th>
+			  <th> Can Hang?</th>
+			  <th> Raises Flag?</th>
+			</tr>
+		  </thead>
+		  <tbody>
+		    <script>
+			  for(var i=0; i<teamList.length; i++) {
+				  var teamRow = "<tr>";
+				  teamRow += "<td>" + teamList[i].number + "</td>";
+				  if(teamList[i].canBridge) {
+					  teamRow += "<td class='alert alert-success'> Yes </td>";
+				  } else {
+					  teamRow += "<td class='alert alert-danger'> Nope</td>";
+				  }
+				  if(teamList[i].canIr) {
+					  teamRow += "<td class='alert alert-success'> Yes </td>";
+				  } else {
+					  teamRow += "<td class='alert alert-danger'> Nope</td>";
+				  }
+				  if(teamList[i].canBasket) {
+					  if(teamList[i].basketReliability < 4) {
+						teamRow += "<td class='alert alert-warning'>" + teamList[i].basketReliability + "/5 </td>";
+					  } else {
+						teamRow += "<td class='alert alert-success'>" + teamList[i].basketReliability + "/5 </td>";
+					  }
+				  } else {
+					  teamRow += "<td class='alert alert-danger'> Nope</td>";
+				  }
+				  if(teamList[i].canHang) {
+					  teamRow += "<td class='alert alert-success'> Yes </td>";
+				  } else {
+					  teamRow += "<td class='alert alert-danger'> Nope</td>";
+				  }
+				  if(teamList[i].flagLevel == "high") {
+					  teamRow += "<td class='alert alert-success'>" + teamList[i].flagTime + " sec. </td>";
+				  } else if(teamList[i].flagLevel == "low") {
+					  teamRow += "<td class='alert alert-warning'>" + teamList[i].flagTime + " sec. </td>";
+				  } else {
+					  teamRow += "<td class='alert alert-danger'> Nope </td>";
+				  }
+				  
+				  teamRow += "</tr>";
+				  document.write(teamRow);
+			  }
+		    </script>
+		  </tbody>
+	  </table>
+  </div>
+  
   <script src="bootstrap-3.0.0/assets/js/jquery.js"></script>
   <script src="bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
 </body>
