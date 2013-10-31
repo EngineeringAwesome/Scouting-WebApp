@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +7,35 @@
   <meta name="author" content="">
   <link rel="shorcut icon" href="bootstrap-3.0.0/assets/ico/favicon.png">
 
-  <title> Settings </title>
+  <title> Alliance Selection </title>
   
   <!-- Bootstrap Core Css -->
   <link href="bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style> body { padding-top: 50px;} </style>
   
+  <script>
+	    //check for web storage
+		var hasWebStorage = false;
+		if(typeof(Storage) !== undefined) {
+			console.log("has localStorage");
+			hasWebStorage = true;
+		}
+		else {
+			console.log("Oh-Noes: local storage unsupported!");
+		}
+		
+		//retrieve team list
+		var teamList;
+		if(hasWebStorage) {
+			var retrievedObject = localStorage.getItem('teamList');
+			console.log('retrievedObject: ', JSON.parse(retrievedObject));
+			teamList = JSON.parse(retrievedObject);
+		}	
+		if (teamList === null) {
+			console.log("nothing was there");
+			teamList = new Array();
+		}
+  </script>
 </head>
 
 <body>
@@ -32,35 +54,14 @@
         <ul class="nav navbar-nav">
           <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
           <li> <a href="teams.html"><span class="glyphicon glyphicon-user"></span> Teams </a></li>
-          <li class="active"> <a href="settings.html"><span class="glyphicon glyphicon-cog"></span> Settings </a></li>
-          <li> <a href="allianceSelection.html"><span class="glyphicon glyphicon-list-alt"></span> Alliance Selection</a></li>
+          <li> <a href="settings.html"><span class="glyphicon glyphicon-cog"></span> Settings </a></li>
+          <li class="active"> <a href="allianceSelection.html"><span class="glyphicon glyphicon-list-alt"></span> Alliance Selection</a></li>
         </ul>
       </div>
     </div>
-  </div>
-  
-  <div class="container">
-   <h1>App Settings</h1>
-   <a href="clearData.html">Clear Data</a>
-  </div>
-
-<!--<div class='appBackgroundGradient'></div>
-  <div class='appBackground'>	
-    <div class='appHeader'>
-      <a href="clearData.html">Clear Data</a>
-    </div>
-    <div class='appCenter'>  
-	  <h1> App Settings </h1>
-	  <p> this will contain app settings, and ability to read from databases <p>
-	  <p> Feature list: </p>
-	  <p> Read data from the Yellow Alliance </p>
-	  <p> Read data from a database of teams at the competition</p>
-	  <p> Add a link to the Rankings webpage </p>
-	</div>
-	<div class='appFooter'></div> 
-  </div>-->
+  </div>	
   <script src="bootstrap-3.0.0/assets/js/jquery.js"></script>
   <script src="bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
 </body>
-
+</html>
 </html>
