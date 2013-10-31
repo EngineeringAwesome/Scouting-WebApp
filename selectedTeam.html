@@ -1,7 +1,17 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html>	
+<html lang="en">
 <head> 
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, inititalscale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="bootstrap-3.0.0/assets/ico/favicon.png">
+	
 	<title> Selected Team</title>
+	
+	<!-- Bootstrap Core Css -->
+	<link href="bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<style> body {padding-top:50px;} </style>
 	<script>
 		var hasWebStorage = false;
 		if(typeof(Storage) !== undefined) {
@@ -24,7 +34,6 @@
 			teamList = new Array();
 		}
 	</script>
-	
 	<script>
 		function findByNumber(sourceArray, findNumber) {
 			for(var i = 0; i < sourceArray.length; i++) {
@@ -37,29 +46,56 @@
 	</script>
 </head>
 <body>
-	<div class="appSelectedTeam">
-		<p id="selectedName">Name: </p>
-		<p id="selectedNumber">Number: </p>
-		<p id="selectedOrg"> School/ Organization: </p>
-		<p id="selectedCity"> City: </p>
-		<p id="selectedState"> State: </p>
-		<p id="selectedCountry"> Country: </p>
-		<p id="selectedCanBridge"> Parks on Bridge?: </p>
-		<p id="selectedCanIr"> Detects IR Beacon?: </p>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Scouting App</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+          <li class="active"> <a href="teams.html"><span class="glyphicon glyphicon-user"></span> Teams </a></li>
+          <li> <a href="settings.html"><span class="glyphicon glyphicon-cog"></span> Settings </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+	<div class="jumbotron">
+		<h1 id="selectedTeam"></h1>
+		<p id="selectedOrg"></p>
+		<p id="selectedLocation"></p>
+		<p id="selectedCanBridge" class="alert "></p>
+		<p id="selectedCanIr" class="alert "></p>
 	</div>
+  </div>
 	<script>
 		var selectedTeamNumber = localStorage.getItem('selectedTeamNumber');
 		var selectedTeam = findByNumber(teamList, selectedTeamNumber);
 		console.log(selectedTeam);
-		document.getElementById("selectedName").innerHTML += selectedTeam.name;
-		document.getElementById("selectedNumber").innerHTML += selectedTeam.number;
+		document.getElementById("selectedTeam").innerHTML += selectedTeam.name + ", " + selectedTeam.number;
 		document.getElementById("selectedOrg").innerHTML += selectedTeam.org;
-		document.getElementById("selectedCity").innerHTML += selectedTeam.city;
-		document.getElementById("selectedState").innerHTML += selectedTeam.state;
-		document.getElementById("selectedCountry").innerHTML += selectedTeam.country;
-		document.getElementById("selectedCanBridge").innerHTML += selectedTeam.canBridge;
-		document.getElementById("selectedCanIR").innerHTML += selectedTeam.canIR;
-		
+		document.getElementById("selectedLocation").innerHTML += selectedTeam.city + ", " + selectedTeam.state + ", " + selectedTeam.country;
+		if(selectedTeam.canBridge) {
+			document.getElementById("selectedCanBridge").innerHTML += "Can park on bridge";
+			document.getElementById('selectedCanBridge').className += "alert-success";
+		} else {
+			document.getElementById("selectedCanBridge").innerHTML += "Cannot park on bridge";
+			document.getElementById('selectedCanBridge').className += "alert-danger";
+		}
+		if(selectedTeam.canIr) {
+			document.getElementById("selectedCanIr").innerHTML += "Can detect IR Beacon";
+			document.getElementById("selectedCanIr").className += "alert-success";
+		} else {
+			document.getElementById("selectedCanIr").innerHTML += "Cannot detect IR Beacon";
+			document.getElementById("selectedCanIr").className += "alert-danger";
+		}		
 	</script>
 
 </body>

@@ -34,6 +34,8 @@
   	tempTeam.country = document.getElementsByName("country")[0].value;
  	tempTeam.canIR = document.getElementsByName("canIR")[0].checked;
 	tempTeam.canBridge = document.getElementsByName("canBridge")[0].checked;
+	tempTeam.canBasket = document.getElementsByName("canBasket")[0].checked;
+	tempTeam.basketReliability = document.getElementsByName("basketReliability")[0].value;
 	tempTeam.canHang = document.getElementsByName("canHang")[0].checked;
 	tempTeam.flagLevel = document.getElementsByName("flagLevel")[0].value;
 	tempTeam.flagTime = document.getElementsByName("flagTime")[0].value;
@@ -70,9 +72,9 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Home</a></li>
-          <li> <a href="teams.html"> Teams </a></li>
-          <li class="active"> <a href="settings.html">Settings </a></li>
+          <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+          <li class="active"> <a href="teams.html"><span class="glyphicon glyphicon-user"></span> Teams </a></li>
+          <li> <a href="settings.html"><span class="glyphicon glyphicon-cog"></span> Settings </a></li>
         </ul>
       </div>
     </div>	
@@ -80,9 +82,9 @@
   
   <div class="container">
     <div class="jumbotron">
-      <h1>Add a team</h1>
+      <h1>Add a team to the list</h1>
     </div>
-    <h3> Team info </h3>
+    <h2 class="page-header"> Team info </h2>
     <form role="form">
       <div class="form-group">
         <label for="name">Name</label>
@@ -110,7 +112,7 @@
       </div>
     </form>
     
-    <h3> Autonomous Info</h3>
+    <h2 class="page-header"> Autonomous Info</h2>
     <form role="form">
       <div class="checkbox">
         <label>
@@ -126,12 +128,22 @@
       </div>
     </form>
     
-    <h3> Teleop Info</h3>
+    <h2 class="page-header"> Teleop Info</h2>
     <form role="form">
-    	
+    	<div class="checkbox">
+    	  <label>
+		    <input type="checkbox" name="canBasket">
+		    Can place blocks in the basket?
+		  </label>
+		</div>
+		<div class="form-group">
+		  <label for="basketReliability">
+            <input type="number" class="form-control" name="basketReliability" placeholder="Placing Reliability (1-5)">
+		  </label>
+		</div>
     </form>
     
-    <h3> End Game Info </h3>
+    <h2 class="page-header"> End Game Info </h2>
     <form role="form">
       <div class="checkbox">
       	<label>
@@ -140,12 +152,12 @@
       	</label>
       </div>
       <div class="">
-      	<label for="flagLevel">Flag Level</label>
       	<select name="flagLevel">
-      	  <option value=false> Doesn't Raise</option>
-	  <option value="low"> Low Raise</option>
-	  <option value="high"> High Raise</option>
+          <option value=false> Doesn't Raise</option>
+          <option value="low"> Low Raise</option>
+          <option value="high"> High Raise</option>
       	</select>
+      	<label for="flagLevel">Flag Level</label>
       </div>
       <div class="form-group">
       	<label for="number">Flag Raise Time</label>
