@@ -38,7 +38,7 @@
 		function findByNumber(sourceArray, findNumber) {
 			for(var i = 0; i < sourceArray.length; i++) {
 				if(sourceArray[i].number == findNumber) {
-					return sourceArray[i];
+					return i;
 				}
 			}
 			throw "Couldn't find team number: " + findNumber;
@@ -94,11 +94,17 @@
 			</div>
 		</div>
 	</div>
+	<div style="padding-top:0px; padding-bottom:100px;">
+		<button type="button" class="btn btn-danger pull-right" onclick="removeTeamFromList()">Delete Team</button>
+	</div>
   </div>
 	<script>
 		var selectedTeamNumber = localStorage.getItem('selectedTeamNumber');
-		var selectedTeam = findByNumber(teamList, selectedTeamNumber);
+		var selectedTeamIndex = findByNumber(teamList, selectedTeamNumber);
+		var selectedTeam = teamList[selectedTeamIndex];
 		console.log(selectedTeam);
+	</script>
+	<script>
 		document.getElementById("selectedTeam").innerHTML += selectedTeam.name + ", " + selectedTeam.number;
 		document.getElementById("selectedOrg").innerHTML += selectedTeam.org;
 		document.getElementById("selectedLocation").innerHTML += selectedTeam.city + ", " + selectedTeam.state + ", " + selectedTeam.country;
@@ -149,9 +155,16 @@
 		} else {
 			document.getElementById("selectedFlagLevel").innerHTML += "Cannot raise the Flag";
 			document.getElementById("selectedFlagLevel").className += "alert-danger";
-		} 
-		
-		
+		} 	
+	</script>
+	<script>
+		function removeTeamFromList() {
+			console.log("deleting...");
+			teamList.splice(selectedTeamIndex,1);
+			console.log(teamList);
+			localStorage.setItem("teamList", JSON.stringify(teamList));
+			location.href="teams.html";
+		}
 	</script>
 
 </body>
