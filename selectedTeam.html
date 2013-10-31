@@ -69,10 +69,30 @@
   <div class="container">
 	<div class="jumbotron">
 		<h1 id="selectedTeam"></h1>
-		<p id="selectedOrg"></p>
-		<p id="selectedLocation"></p>
-		<p id="selectedCanBridge" class="alert "></p>
-		<p id="selectedCanIr" class="alert "></p>
+		<div class="row">
+			<p id="selectedLocation" class="col-xs-6"></p>
+			<p id="selectedOrg" class="col-xs-6"></p>
+		</div>
+		<h2>Autonomous Capabilities </h2>
+		<div class="row">
+		  <p id="selectedCanBridge" class="col-xs-6 alert "></p>
+		  <p id="selectedCanIr" class="col-xs-6 alert "></p>
+		</div>
+		
+		<h2>Teleop Capabilities</h2>
+		<div class="row">
+		  <div id="selectedCanBasket" class="col-xs-6 alert ">
+		    <span id="selectedBasketReliability" class="badge col-xs-3"></span>
+		  </div>
+		</div>
+		
+		<h2>Endgame Capabilities</h2>
+		<div class="row">
+			<div id="selectedCanHang" class="col-xs-6 alert "></div>
+			<div id="selectedFlagLevel" class="col-xs-6 alert ">
+				<span id="selectedFlagTime" class="badge col-xs-2"></span>
+			</div>
+		</div>
 	</div>
   </div>
 	<script>
@@ -82,6 +102,7 @@
 		document.getElementById("selectedTeam").innerHTML += selectedTeam.name + ", " + selectedTeam.number;
 		document.getElementById("selectedOrg").innerHTML += selectedTeam.org;
 		document.getElementById("selectedLocation").innerHTML += selectedTeam.city + ", " + selectedTeam.state + ", " + selectedTeam.country;
+		
 		if(selectedTeam.canBridge) {
 			document.getElementById("selectedCanBridge").innerHTML += "Can park on bridge";
 			document.getElementById('selectedCanBridge').className += "alert-success";
@@ -95,7 +116,42 @@
 		} else {
 			document.getElementById("selectedCanIr").innerHTML += "Cannot detect IR Beacon";
 			document.getElementById("selectedCanIr").className += "alert-danger";
-		}		
+		}
+		
+		document.getElementById("selectedBasketReliability").innerHTML += "Reliability: " + selectedTeam.basketReliability + "/5";
+		if(selectedTeam.canBasket && selectedTeam.basketReliability >=4) {
+			document.getElementById("selectedCanBasket").innerHTML += " Can Place in the Basket";
+			document.getElementById("selectedCanBasket").className += "alert-success";
+		} else if(selectedTeam.canBasket) {
+			document.getElementById("selectedCanBasket").innerHTML += " Can Place in the Basket";
+			document.getElementById("selectedCanBasket").className += "alert-warning";
+		} else {
+			document.getElementById("selectedCanBasket").innerHTML += " Cannot Place in the Basket";
+			document.getElementById("selectedCanBasket").className += "alert-danger";
+		}
+		
+		if(selectedTeam.canHang) {
+			document.getElementById("selectedCanHang").innerHTML += "Robot can Hang in Endgame";
+			document.getElementById("selectedCanHang").className += "alert-success";
+		} else {
+			document.getElementById("selectedCanHang").innerHTML += "Robot cannot Hang in Endgame";
+			document.getElementById("selectedCanHang").className += "alert-danger";
+		}
+		if(selectedTeam.flagTime) {
+			document.getElementById("selectedFlagTime").innerHTML+= selectedTeam.flagTime + " seconds";
+		}
+		if(selectedTeam.flagLevel == "high") {
+			document.getElementById("selectedFlagLevel").innerHTML += "Can raise the Flag to High Zone";
+			document.getElementById("selectedFlagLevel").className += "alert-success";
+		} else if(selectedTeam.flagLevel == "low") {
+			document.getElementById("selectedFlagLevel").innerHTML += "Can raise the Flag to Low Zone";
+			document.getElementById("selectedFlagLevel").className += "alert-warning";
+		} else {
+			document.getElementById("selectedFlagLevel").innerHTML += "Cannot raise the Flag";
+			document.getElementById("selectedFlagLevel").className += "alert-danger";
+		} 
+		
+		
 	</script>
 
 </body>
