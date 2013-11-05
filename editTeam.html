@@ -12,6 +12,54 @@
     <!-- Bootstrap Core Css-->
     <link rel="stylesheet" href="bootstrap-3.0.0/dist/css/bootstrap.min.css">
     <style> body:{ padding-top:50px; } </style>
+    
+    <script>
+      var hasWebStorage=false;
+      if(typeof(Storage) !== "undefined") {
+        console.log("localStorage supported!");
+        hasWebStorage=true;
+      } else {
+        console.log("Oh-Noes: localStorage unsupported!")
+      }
+    </script>
+    <script>
+      var teamList;
+      if(hasWebStorage) {
+        var retrievedObject = localStorage.getItem('teamList');
+        teamList=JSON.parse(retrievedObject);
+      }
+      if(teamList === null) {
+        console.log("teamList is empty");
+        teamList = new Array();
+      }
+    </script>
+    <script>
+      var selectedTeamNumber = localStorage.getItem("selectedTeamNumber");
+      var selectedTeamIndex = findByNumber(teamList, selectedTeam);
+      var selectedTeam = teamList[selectedTeamIndex];
+    </script>
+    <script>
+      function submitTeamData() {
+        tempTeam = new Object();
+        tempTeam.name = document.getElementsByName("name")[0].value;
+        tempTeam.number = document.getElementsByName("number")[0].value;
+        tempTeam.org = document.getElementsByName("org")[0].value;
+        tempTeam.city = document.getElementsByName("city")[0].value;
+        tempTeam.state = document.getElementsByName("state")[0].value;
+        tempTeam.country = document.getElementsByName("country")[0].value;
+        tempTeam.canIr = document.getElementsByName("canIr")[0].checked;
+        tempTeam.canBridge = document.getElementsByName("canBridge")[0].checked;
+        tempTeam.canBasket = document.getElementsByName("canBasket")[0].checked;
+        tempTeam.basketReliability = document.getElementsByName("basketReliability")[0].value;
+        tempTeam.canHang = document.getElementsByName("canHang")[0].checked;
+        tempTeam.flagLevel = document.getElementsByName("flagLevel")[0].value;
+        tempTeam.flagTime = document.getElementsByName("flagTime")[0].value;
+        
+        teamList.push(tempTeam);
+        localStorage.setItem("teamList", JSON.stringify(teamList));
+        location.href="teams.html";
+      }
+    </script>
   </head>
   
   <body>
@@ -40,6 +88,88 @@
     <div class="container">
       <div class="jumbotron">
         <h1>Edit Team Info</h1>
+        <h2 class="page-header"> Team info </h2>
+        <form role="form">
+          <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" name="name" placeholder="Team name">
+          </div>
+          <div class="form-group">
+              <label for="number">Number</label>
+              <input type="number" class="form-control" name="number" placeholder="Team number">
+          </div>
+          <div class="form-group">
+              <label for="org">School / Organization</label>
+              <input type="text" class="form-control" name="org" placeholder="Team School/Organization">
+          </div>
+          <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" class="form-control" name="city" placeholder="Team City">
+          </div>
+          <div class="form-group">
+              <label for="state">State</label>
+              <input type="text" class="form-control" name="state" placeholder="Team State">
+          </div>
+          <div class="form-group">
+              <label for="country">Country</label>
+              <input type="text" class="form-control" name="country" placeholder="Team Country">
+           </div>
+        </form>
+    
+        <h2 class="page-header"> Autonomous Info</h2>
+        <form role="form">
+          <div class="checkbox">
+             <label>
+                <input type="checkbox" name="canIr">
+                  Detects IR Beacon?
+              </label>
+          </div>
+          <div class="checkbox">
+              <label>
+                  <input type="checkbox" name="canBridge">
+                    Can park on bridge?
+              </label>
+          </div>
+        </form>
+    
+        <h2 class="page-header"> Teleop Info</h2>
+        <form role="form">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="canBasket">
+                      Can place blocks in the basket?
+                    </label>
+            </div>
+            <div class="form-group">
+                <label for="basketReliability">
+                    <input type="number" class="form-control" name="basketReliability" placeholder="Placing Reliability (1-5)">
+                </label>
+            </div>
+          </form>
+    
+          <h2 class="page-header"> End Game Info </h2>
+          <form role="form">
+              <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="canHang">
+                      Can Hang at the end?
+                    </label>
+              </div>
+              <div class="">
+                  <select name="flagLevel">
+                      <option value=false> Doesn't Raise</option>
+                      <option value="low"> Low Raise</option>
+                      <option value="high"> High Raise</option>
+                  </select>
+                  <label for="flagLevel">Flag Level</label>
+              </div>
+              <div class="form-group">
+                  <label for="number">Flag Raise Time</label>
+                  <input type="number" class="form-control" name="flagTime" placeholder="Flag Raise Time">
+              </div>
+          </form>
+    
+          <button type="button" class="btn btn-primary" onclick="submitTeamData()">Add Team</button>
       </div>
     </div>
     
