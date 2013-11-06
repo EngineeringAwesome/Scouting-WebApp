@@ -17,7 +17,7 @@
   <script src="js/navbar.js"></script>
 	<script>
 		var hasWebStorage = checkForLocalStorage();
-		var teamList = getTeamList();
+		var teamList = getTeamList(hasWebStorage);
     var pageName = getPageName();
 
 		function findByNumber(sourceArray, findNumber) {
