@@ -14,7 +14,8 @@ function getTeamList(hasWebStorage) {
     if(hasWebStorage) {
       var retrievedObject = localStorage.getItem('teamList');
       console.log('retrieving teamList');
-      console.log('retrievedObject: ', JSON.parse(retrievedObject));
+      console.log('retrievedObject Raw: ', retrievedObject);
+      console.log('retrievedObject Parsed: ', JSON.parse(retrievedObject));
       teamList = JSON.parse(retrievedObject);
     }	
     if (teamList === null) {
