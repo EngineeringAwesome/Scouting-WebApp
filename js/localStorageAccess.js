@@ -27,7 +27,7 @@ function getTeamList(hasWebStorage) {
 
 function storeTeamList(hasWebStorage, teamList) {
     if(hasWebStorage) {
-      localStorage.setItem('teamList', teamList);
+      localStorage.setItem('teamList', JSON.stringify(teamList));
     } else {
       console.log("localStorage not supported! :(");
     }  
