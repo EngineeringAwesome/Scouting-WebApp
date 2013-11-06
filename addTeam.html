@@ -6,7 +6,7 @@
   <script src="js/navbar.js"></script>
   <script>	
     var hasWebStorage = checkForLocalStorage();
-    var teamList = getTeamList();
+    var teamList = getTeamList(hasWebStorage);
     console.log(teamList);
     var pageName = getPageName();
 
@@ -28,7 +28,7 @@
 		
     teamList.push(tempTeam);
     console.log(teamList);
-    storeTeamList(teamList);
+    storeTeamList(hasWebStorage, teamList);
     }
   </script>
 	
