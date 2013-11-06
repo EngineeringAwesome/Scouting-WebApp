@@ -1,5 +1,4 @@
 
-
 function checkForLocalStorage() {
     var hasWebStorage = false;
     
@@ -12,7 +11,7 @@ function checkForLocalStorage() {
     return hasWebStorage;
 }
 
-function getTeamList() {
+function getTeamList(hasWebStorage) {
     if(hasWebStorage) {
       var retrievedObject = localStorage.getItem('teamList');
       console.log('retrievedObject: ', JSON.parse(retrievedObject));
@@ -25,7 +24,7 @@ function getTeamList() {
     return teamList;
 }
 
-function storeTeamList(teamList) {
+function storeTeamList(hasWebStorage, teamList) {
     if(hasWebStorage) {
       localStorage.setItem('teamList', teamList);
     } else {
