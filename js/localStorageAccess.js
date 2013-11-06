@@ -1,31 +1,31 @@
 function checkForLocalStorage() {
-    var hasWebStorage = false;
+    var temphasWebStorage = false;
     
     if(typeof(Storage) !== "undefined") {
     	console.log("local storage supported");
-    	hasWebStorage = true;
+    	temphasWebStorage = true;
     } else {
   	console.log("Oh-Noes: local storage unsupported!");
     }
-    return hasWebStorage;
+    return temphasWebStorage;
 }
 
-function getTeamList(hasWebStorage) {
-    if(hasWebStorage) {
+function getTeamList(temphasWebStorage) {
+    if(temphasWebStorage) {
       var retrievedObject = localStorage.getItem('teamList');
       console.log('retrievedObject: ', JSON.parse(retrievedObject));
-      teamList = JSON.parse(retrievedObject);
+      var tempteamList = JSON.parse(retrievedObject);
     }	
-    if (teamList === null) {
+    if (tempteamList === null) {
       console.log("nothing was there");
-      teamList = new Array();
+      tempteamList = new Array();
     }
-    return teamList;
+    return tempteamList;
 }
 
-function storeTeamList(hasWebStorage, tempTeamList) {
+function storeTeamList(temphasWebStorage, tempTeamList) {
     console.log('parse v2');
-    if(hasWebStorage) {
+    if(temphasWebStorage) {
       localStorage.setItem('teamList', JSON.stringify(tempTeamList));
     } else {
       console.log("localStorage not supported! :(");
