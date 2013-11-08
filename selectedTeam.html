@@ -18,7 +18,7 @@
 	<script>
 		var hasWebStorage = checkForLocalStorage();
 		var teamList = getTeamList(hasWebStorage);
-    var pageName = getPageName();
+    		var pageName = getPageName();
 
 		function findByNumber(sourceArray, findNumber) {
 			for(var i = 0; i < sourceArray.length; i++) {
@@ -30,6 +30,8 @@
 		}
     
     console.log(location.href);
+    console.log(location.hash);
+    console.log('sliced: ' + location.hash.slice(1,5));
     console.log(location.pathname);
     var parts = location.pathname.split('/');
     console.log(parts[parts.length -1]);
@@ -70,7 +72,7 @@
 	</div>
   </div>
 	<script>
-		var selectedTeamNumber = localStorage.getItem('selectedTeamNumber');
+		var selectedTeamNumber = location.hash.slice(1,5);
 		var selectedTeamIndex = findByNumber(teamList, selectedTeamNumber);
 		var selectedTeam = teamList[selectedTeamIndex];
 		console.log(selectedTeam);
