@@ -13,29 +13,15 @@
     <link rel="stylesheet" href="bootstrap-3.0.0/dist/css/bootstrap.min.css">
     <style> body:{ padding-top:50px; } </style>
     
+    <script src="js/localStorageAccess.js"></script>
+    <script src="js/navbar.js"></script>
     <script>
-      var hasWebStorage=false;
-      if(typeof(Storage) !== "undefined") {
-        console.log("localStorage supported!");
-        hasWebStorage=true;
-      } else {
-        console.log("Oh-Noes: localStorage unsupported!")
-      }
-    </script>
-    <script>
-      var teamList;
-      if(hasWebStorage) {
-        var retrievedObject = localStorage.getItem('teamList');
-        teamList=JSON.parse(retrievedObject);
-      }
-      if(teamList === null) {
-        console.log("teamList is empty");
-        teamList = new Array();
-      }
-    </script>
-    <script>
-      var selectedTeamNumber = localStorage.getItem("selectedTeamNumber");
-      var selectedTeamIndex = findByNumber(teamList, selectedTeam);
+      var hasWebStorage = checkForLocalStorage();
+      var teamList = getTeamList(hasWebStorage);
+      var pageName = getPageName();
+      
+      var selectedTeamNumber = location.hash.slice(1,5);
+      var selectedTeamIndex = findByNumber(teamList, selectedTeamNumber);
       var selectedTeam = teamList[selectedTeamIndex];
     </script>
     <script>
@@ -63,27 +49,7 @@
   </head>
   
   <body>
-    <div class="nav navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">Scouting App</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-            <li class="active"> <a href="teams.html"><span class="glyphicon glyphicon-user"></span> Teams </a></li>
-            <li> <a href="allianceSelection.html"><span class="glyphicon glyphicon-list-alt"></span> Alliance Selection</a></li>
-            <li> <a href="settings.html"><span class="glyphicon glyphicon-cog"></span> Settings </a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <script> displayNavbar(pageName); </script>
     
     <div class="container">
       <div class="jumbotron">
@@ -173,5 +139,7 @@
       </div>
     </div>
     
+    <script src="assets/js/jquery.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
   </body>
 </html>
