@@ -23,7 +23,7 @@
 	}
 	function goToSelectedTeam(teamNumber) {
 		localStorage.setItem('selectedTeamNumber', teamNumber);
-		location.href = 'selectedTeam.html';
+		location.href = 'selectedTeam.html' + '#' + teamNumber;
 	}
   </script>
   
