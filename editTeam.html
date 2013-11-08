@@ -10,11 +10,21 @@
     <title> Edit Team Info</title>
     
     <!-- Bootstrap Core Css-->
-    <link rel="stylesheet" href="bootstrap-3.0.0/dist/css/bootstrap.min.css">
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
     <style> body:{ padding-top:50px; } </style>
     
     <script src="js/localStorageAccess.js"></script>
     <script src="js/navbar.js"></script>
+    <script>
+      function findByNumber(sourceArray, findNumber) {
+                        for(var i = 0; i < sourceArray.length; i++) {
+                                if(sourceArray[i].number == findNumber) {
+                                        return i;
+                                }
+                        }
+                        throw "Couldn't find team number: " + findNumber;
+                }
+    </script>
     <script>
       var hasWebStorage = checkForLocalStorage();
       var teamList = getTeamList(hasWebStorage);
