@@ -28,13 +28,6 @@
 			}
 			throw "Couldn't find team number: " + findNumber;
 		}
-    
-    console.log(location.href);
-    console.log(location.hash);
-    console.log('sliced: ' + location.hash.slice(1,5));
-    console.log(location.pathname);
-    var parts = location.pathname.split('/');
-    console.log(parts[parts.length -1]);
 	</script>
 </head>
 <body>
@@ -75,7 +68,6 @@
 		var selectedTeamNumber = location.hash.slice(1,5);
 		var selectedTeamIndex = findByNumber(teamList, selectedTeamNumber);
 		var selectedTeam = teamList[selectedTeamIndex];
-		console.log(selectedTeam);
 	</script>
 	<script>
 		document.getElementById("selectedTeam").innerHTML += selectedTeam.name + ", " + selectedTeam.number;
