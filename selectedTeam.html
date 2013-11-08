@@ -19,6 +19,10 @@
 		var hasWebStorage = checkForLocalStorage();
 		var teamList = getTeamList(hasWebStorage);
     		var pageName = getPageName();
+    		
+    		var selectedTeamNumber = location.hash.slice(1,5);
+		var selectedTeamIndex = findByNumber(teamList, selectedTeamNumber);
+		var selectedTeam = teamList[selectedTeamIndex];
 
 		function findByNumber(sourceArray, findNumber) {
 			for(var i = 0; i < sourceArray.length; i++) {
@@ -28,6 +32,10 @@
 			}
 			throw "Couldn't find team number: " + findNumber;
 		}
+		
+		function goToEditTeam(teamNumber) {
+                	location.href = 'editTeam.html' + '#' + teamNumber;
+        	}
 	</script>
 </head>
 <body>
@@ -61,14 +69,10 @@
 		</div>
 	</div>
 	<div style="padding-top:0px; padding-bottom:100px;">
-		<button type="button" class="btn btn-danger pull-right" onclick="removeTeamFromList()">Delete Team</button>
+		<button type="button" class="btn btn-warning" onclick="goToEditTeam(selectedTeamNumber)"><span class="glyphicon glyphicon-edit"></span> Edit Team</button>
+		<button type="button" class="btn btn-danger pull-right" onclick="removeTeamFromList()">Delete Team <span class="glyphicon glyphicon-trash"></span></button>
 	</div>
   </div>
-	<script>
-		var selectedTeamNumber = location.hash.slice(1,5);
-		var selectedTeamIndex = findByNumber(teamList, selectedTeamNumber);
-		var selectedTeam = teamList[selectedTeamIndex];
-	</script>
 	<script>
 		document.getElementById("selectedTeam").innerHTML += selectedTeam.name + ", " + selectedTeam.number;
 		document.getElementById("selectedOrg").innerHTML += selectedTeam.org;
