@@ -52,7 +52,7 @@
         
         teamList[selectedTeamIndex] = selectedTeam;
         localStorage.setItem("teamList", JSON.stringify(teamList));
-        location.href="teams.html";
+        location.href="selectedTeam.html" + "#" + selectedTeamNumber;
       }
     </script>
   </head>
