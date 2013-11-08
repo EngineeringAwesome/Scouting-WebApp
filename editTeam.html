@@ -36,22 +36,21 @@
     </script>
     <script>
       function submitTeamData() {
-        tempTeam = new Object();
-        tempTeam.name = document.getElementsByName("name")[0].value;
-        tempTeam.number = document.getElementsByName("number")[0].value;
-        tempTeam.org = document.getElementsByName("org")[0].value;
-        tempTeam.city = document.getElementsByName("city")[0].value;
-        tempTeam.state = document.getElementsByName("state")[0].value;
-        tempTeam.country = document.getElementsByName("country")[0].value;
-        tempTeam.canIr = document.getElementsByName("canIr")[0].checked;
-        tempTeam.canBridge = document.getElementsByName("canBridge")[0].checked;
-        tempTeam.canBasket = document.getElementsByName("canBasket")[0].checked;
-        tempTeam.basketReliability = document.getElementsByName("basketReliability")[0].value;
-        tempTeam.canHang = document.getElementsByName("canHang")[0].checked;
-        tempTeam.flagLevel = document.getElementsByName("flagLevel")[0].value;
-        tempTeam.flagTime = document.getElementsByName("flagTime")[0].value;
+        selectedTeam.name = document.getElementsByName("name")[0].value;
+        selectedTeam.number = document.getElementsByName("number")[0].value;
+        selectedTeam.org = document.getElementsByName("org")[0].value;
+        selectedTeam.city = document.getElementsByName("city")[0].value;
+        selectedTeam.state = document.getElementsByName("state")[0].value;
+        selectedTeam.country = document.getElementsByName("country")[0].value;
+        selectedTeam.canIr = document.getElementsByName("canIr")[0].checked;
+        selectedTeam.canBridge = document.getElementsByName("canBridge")[0].checked;
+        selectedTeam.canBasket = document.getElementsByName("canBasket")[0].checked;
+        selectedTeam.basketReliability = document.getElementsByName("basketReliability")[0].value;
+        selectedTeam.canHang = document.getElementsByName("canHang")[0].checked;
+        selectedTeam.flagLevel = document.getElementsByName("flagLevel")[0].value;
+        selectedTeam.flagTime = document.getElementsByName("flagTime")[0].value;
         
-        teamList.push(tempTeam);
+        teamList[selectedTeamIndex] = selectedTeam;
         localStorage.setItem("teamList", JSON.stringify(teamList));
         location.href="teams.html";
       }
