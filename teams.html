@@ -2,23 +2,12 @@
 <html lang="en">
 
 <head>
+  <script src="js/localStorageAccess.js"></script>
+  <script src="js/navbar.js"></script>
   <script> 
-	var hasWebStorage = false;
-	if(typeof(Storage) !== "undefined") {
-		console.log("local storage supported");
-		hasWebStorage = true;
-	} else {
-		console.log("Oh-Noes: local storage unsupported!");
-	}
-	
-	var teamList = new Array();
-	if(hasWebStorage) {
-		var retrievedObject = localStorage.getItem('teamList');
-		console.log('retrievedObject: ', JSON.parse(retrievedObject));
-		teamList = JSON.parse(retrievedObject);
-	}
-	
-	localStorage.setItem('teamList', JSON.stringify(teamList));
+	var hasWebStorage = checkForLocalStorage();
+	var teamList = getTeamList(hasWebStorage);
+	var pageName = getPageName();
   </script>
   
   <script>
@@ -52,27 +41,7 @@
 </head>
 
 <body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">Scouting App</a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-          <li class="active"> <a href="teams.html"><span class="glyphicon glyphicon-user"></span> Teams </a></li>
-          <li> <a href="allianceSelection.html"><span class="glyphicon glyphicon-list-alt"></span> Alliance Selection</a></li>
-	  <li> <a href="settings.html"><span class="glyphicon glyphicon-cog"></span> Settings </a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <script> displayNavbar(pageName);</script>
   
   <div class="container">
     <div class="jumbotron">
