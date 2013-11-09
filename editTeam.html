@@ -49,7 +49,7 @@
         selectedTeam.canHang = document.getElementsByName("canHang")[0].checked;
         selectedTeam.flagLevel = document.getElementsByName("flagLevel")[0].value;
         selectedTeam.flagTime = document.getElementsByName("flagTime")[0].value;
-        selectedTeam.notes = document.getElementsByName("name")[0].value;
+        selectedTeam.notes = document.getElementsByName("notes")[0].value;
         
         teamList[selectedTeamIndex] = selectedTeam;
         localStorage.setItem("teamList", JSON.stringify(teamList));
