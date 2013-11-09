@@ -49,7 +49,8 @@
 		    <script>
 			  for(var i=0; i<teamList.length; i++) {
 				  var teamRow = "<tr>";
-				  teamRow += "<td onClick='goToSelectedTeam(" + teamList[i].number + ")'>" + teamList[i].number + "</td>";
+				  teamRow += "<td> <a href='selectedTeam.html#" + teamList[i].number + "'>";
+				  teamRow += teamList[i].number + "</a></td>";
 				  if(teamList[i].canBridge) {
 					  teamRow += "<td class='alert alert-success'> Yes </td>";
 				  } else {
