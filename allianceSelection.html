@@ -16,12 +16,16 @@
   <script src="js/localStorageAccess.js"></script>
   <script src="js/navbar.js"></script>
   <script>
-	    //check for web storage
-		var hasWebStorage = checkForLocalStorage();
+	//check for web storage
+	var hasWebStorage = checkForLocalStorage();
 		
-		//retrieve team list
-		var teamList = getTeamList(hasWebStorage);
-    var pageName = getPageName();
+	//retrieve team list
+	var teamList = getTeamList(hasWebStorage);
+    	var pageName = getPageName();
+    		
+    	function goToSelectedTeam(teamNumber) {
+                location.href = 'selectedTeam.html' + '#' + teamNumber;
+        }
   </script>
 </head>
 
@@ -45,7 +49,7 @@
 		    <script>
 			  for(var i=0; i<teamList.length; i++) {
 				  var teamRow = "<tr>";
-				  teamRow += "<td>" + teamList[i].number + "</td>";
+				  teamRow += "<td onClick='goToSelectedTeam(" + teamList[1].number + ")'>" + teamList[i].number + "</td>";
 				  if(teamList[i].canBridge) {
 					  teamRow += "<td class='alert alert-success'> Yes </td>";
 				  } else {
