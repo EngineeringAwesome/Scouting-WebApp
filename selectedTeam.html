@@ -130,9 +130,7 @@
 			document.getElementById("selectedFlagLevel").innerHTML += "Cannot raise the Flag";
 			document.getElementById("selectedFlagLevel").className += "alert-danger";
 		} 
-		console.log("beep: " + document.getElementById("selectedNotes"));
-		console.log(selectedTeam.notes);
-		document.getElementsById("selectedNotes").innerHTML += "Debug text" + selectedTeam.notes;
+		document.getElementById("selectedNotes").innerHTML += selectedTeam.notes;
 	</script>
 	<script>
 		function removeTeamFromList() {
