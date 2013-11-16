@@ -4,10 +4,11 @@
   <body>
     <script src="assets/js/jquery.js"></script>
     <script>
-      document.write("Avast Ye Maties!");
+      document.write("Shiver me timbers!");
       $.get("https://www.google.com/",
           function(data) {
             alert("Data retrieved: " + data);
+            document.write(data);
           });
     </script>
   </body>
