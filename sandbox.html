@@ -1,1 +1,14 @@
 <!DOCTYPE html>
+<html>
+  
+  <body>
+    <script src="assets/js/jquery.js"></script>
+    <script>
+      document.write("Avast Ye Maties!");
+      $.get("https://www.google.com/",
+          function(data) {
+            alert("Data retrieved: " + data);
+          });
+    </script>
+  </body>
+</html>
