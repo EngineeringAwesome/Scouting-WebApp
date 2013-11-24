@@ -1,12 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shorcut icon" href="assets/ico/favicon.png">
+	
 	<title> Clearing Data</title>
+	
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
+	<style> body { padding-top:50px;} </style>
+	
+	<script src="js/navbar.js"></script>
+	<script>
+		var pageName = getPageName();
+	</script>
+	
 </head>
 
 <body>
-	<p> Clearing all localStorage data with: localStorage.clear()</p>
+	<script> displayNavbar(pageName);</script>
+	
+	<div class="container">
+		<div class="jumbotron">
+			<h2> Clearing all data</h2>
+			<p> Clearing data from localStorage with: localStorage.clear()</p>
+		</div>
+	</div>
 	<script> localStorage.clear(); </script>
-	<p> Om Nom Nom Nom! Cookies!!!</p>
+	
+	<script src="assets/js/jquery.js"></script>
+	<script src="dist/js/bootstrap.min.js"></script>
+	
 </body>
 </html>
