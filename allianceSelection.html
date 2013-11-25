@@ -34,61 +34,76 @@
   
   <div class="container">
 	  <h1 class="text-center"> All Competing Teams</h1>
-	  <table class="table table-bordered">
-		  <thead>
-			<tr>
-			  <th> Team</th>
-			  <th> Parks on Bridge?</th>
-			  <th> Detects IR?</th>
-			  <th> Places Blocks?</th>
-			  <th> Can Hang?</th>
-			  <th> Raises Flag?</th>
-			</tr>
-		  </thead>
-		  <tbody>
-		    <script>
-			  for(var i=0; i<teamList.length; i++) {
-				  var teamRow = "<tr>";
-				  teamRow += "<td> <a href='selectedTeam.html#" + teamList[i].number + "'>";
-				  teamRow += teamList[i].number + "</a></td>";
-				  if(teamList[i].canBridge) {
-					  teamRow += "<td class='alert alert-success'> Yes </td>";
-				  } else {
-					  teamRow += "<td class='alert alert-danger'> Nope</td>";
-				  }
-				  if(teamList[i].canIr) {
-					  teamRow += "<td class='alert alert-success'> Yes </td>";
-				  } else {
-					  teamRow += "<td class='alert alert-danger'> Nope</td>";
-				  }
-				  if(teamList[i].canBasket) {
-					  if(teamList[i].basketReliability < 4) {
-						teamRow += "<td class='alert alert-warning'>" + teamList[i].basketReliability + "/5 </td>";
+	  
+	  <!-- Nav tabs -->
+	  <ul class="nav nav-tabs">
+	  	<li><a href="#one" data-toggle="tab">One</a></li>
+	  	<li><a href="#two" data-toggle="tab">Two</a></li>
+	  	<li><a href="#three" data-toggle="tab">Three</a></li>
+	  </ul>
+	  
+	  <!-- Tab panes -->
+	  <div class="tab-content">
+	  	<div class="tab-pane active" id="one">
+	  	<table class="table table-bordered">
+			  <thead>
+				<tr>
+				  <th> Team</th>
+				  <th> Parks on Bridge?</th>
+				  <th> Detects IR?</th>
+				  <th> Places Blocks?</th>
+				  <th> Can Hang?</th>
+				  <th> Raises Flag?</th>
+				</tr>
+			  </thead>
+			  <tbody>
+			    <script>
+				  for(var i=0; i<teamList.length; i++) {
+					  var teamRow = "<tr>";
+					  teamRow += "<td> <a href='selectedTeam.html#" + teamList[i].number + "'>";
+					  teamRow += teamList[i].number + "</a></td>";
+					  if(teamList[i].canBridge) {
+						  teamRow += "<td class='alert alert-success'> Yes </td>";
 					  } else {
-						teamRow += "<td class='alert alert-success'>" + teamList[i].basketReliability + "/5 </td>";
+						  teamRow += "<td class='alert alert-danger'> Nope</td>";
 					  }
-				  } else {
-					  teamRow += "<td class='alert alert-danger'> Nope</td>";
+					  if(teamList[i].canIr) {
+						  teamRow += "<td class='alert alert-success'> Yes </td>";
+					  } else {
+						  teamRow += "<td class='alert alert-danger'> Nope</td>";
+					  }
+					  if(teamList[i].canBasket) {
+						  if(teamList[i].basketReliability < 4) {
+							teamRow += "<td class='alert alert-warning'>" + teamList[i].basketReliability + "/5 </td>";
+						  } else {
+							teamRow += "<td class='alert alert-success'>" + teamList[i].basketReliability + "/5 </td>";
+						  }
+					  } else {
+						  teamRow += "<td class='alert alert-danger'> Nope</td>";	
+					  }
+					  if(teamList[i].canHang) {
+						  teamRow += "<td class='alert alert-success'> Yes </td>";
+					  } else {
+						  teamRow += "<td class='alert alert-danger'> Nope</td>";
+					  }
+					  if(teamList[i].flagLevel == "high") {
+						  teamRow += "<td class='alert alert-success'>" + teamList[i].flagTime + " sec. </td>";
+					  } else if(teamList[i].flagLevel == "low") {
+						  teamRow += "<td class='alert alert-warning'>" + teamList[i].flagTime + " sec. </td>";
+					  } else {
+						  teamRow += "<td class='alert alert-danger'> Nope </td>";
+					  }
+					  
+					  teamRow += "</tr>";
+					  document.write(teamRow);
 				  }
-				  if(teamList[i].canHang) {
-					  teamRow += "<td class='alert alert-success'> Yes </td>";
-				  } else {
-					  teamRow += "<td class='alert alert-danger'> Nope</td>";
-				  }
-				  if(teamList[i].flagLevel == "high") {
-					  teamRow += "<td class='alert alert-success'>" + teamList[i].flagTime + " sec. </td>";
-				  } else if(teamList[i].flagLevel == "low") {
-					  teamRow += "<td class='alert alert-warning'>" + teamList[i].flagTime + " sec. </td>";
-				  } else {
-					  teamRow += "<td class='alert alert-danger'> Nope </td>";
-				  }
-				  
-				  teamRow += "</tr>";
-				  document.write(teamRow);
-			  }
-		    </script>
-		  </tbody>
-	  </table>
+			    </script>
+			  </tbody>
+		  </table>
+		  </div>
+		  <div class="tab-pane" id="two"></div>
+		  <div class="tab-pane" id="three"></div>
+	  </div>
   </div>
   <div class="container" id ="empty" style="margin-bottom:1000px">&nbsp;
   </div>
