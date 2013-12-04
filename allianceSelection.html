@@ -16,14 +16,14 @@
   <script src="js/localStorageAccess.js"></script>
   <script src="js/navbar.js"></script>
   <script>
-	//check for web storage
-	var hasWebStorage = checkForLocalStorage();
-		
-	//retrieve team list
-	var teamList = getTeamList(hasWebStorage);
-    	var pageName = getPageName();
-    		
-    	function goToSelectedTeam(teamNumber) {
+        //check for web storage
+        var hasWebStorage = checkForLocalStorage();
+                
+        //retrieve team list
+        var teamList = getTeamList(hasWebStorage);
+            var pageName = getPageName();
+                    
+            function goToSelectedTeam(teamNumber) {
                 location.href = 'selectedTeam.html' + '#' + teamNumber;
         }
   </script>
@@ -33,85 +33,247 @@
   <script>displayNavbar(pageName);</script>
   
   <div class="container">
-	  <h1 class="text-center"> All Competing Teams</h1>
-	  
-	  <!-- Nav tabs -->
-	  <ul class="nav nav-tabs">
-	  	<li><a href="#teams" data-toggle="tab">All teams</a></li>
-	  	<li><a href="#L1" data-toggle="tab">List 1</a></li>
-	  	<li><a href="#L2" data-toggle="tab">List 2</a></li>
-	  	<li><a href="#L3" data-toggle="tab">List 3</a></li>
-	  </ul>
-	  
-	  <!-- Tab panes -->
-	  <div class="tab-content">
-	  	<div class="tab-pane active" id="teams">
-	  	<table class="table table-bordered">
-			  <thead>
-				<tr>
-				  <th> Team</th>
-				  <th> Parks on Bridge?</th>
-				  <th> Detects IR?</th>
-				  <th> Places Blocks?</th>
-				  <th> Can Hang?</th>
-				  <th> Raises Flag?</th>
-				</tr>
-			  </thead>
-			  <tbody>
-			    <script>
-				  for(var i=0; i<teamList.length; i++) {
-					  var teamRow = "<tr>";
-					  teamRow += "<td> <a href='selectedTeam.html#" + teamList[i].number + "'>";
-					  teamRow += teamList[i].number + "</a></td>";
-					  if(teamList[i].canBridge) {
-						  teamRow += "<td class='alert alert-success'> Yes </td>";
-					  } else {
-						  teamRow += "<td class='alert alert-danger'> Nope</td>";
-					  }
-					  if(teamList[i].canIr) {
-						  teamRow += "<td class='alert alert-success'> Yes </td>";
-					  } else {
-						  teamRow += "<td class='alert alert-danger'> Nope</td>";
-					  }
-					  if(teamList[i].canBasket) {
-						  if(teamList[i].basketReliability < 4) {
-							teamRow += "<td class='alert alert-warning'>" + teamList[i].basketReliability + "/5 </td>";
-						  } else {
-							teamRow += "<td class='alert alert-success'>" + teamList[i].basketReliability + "/5 </td>";
-						  }
-					  } else {
-						  teamRow += "<td class='alert alert-danger'> Nope</td>";	
-					  }
-					  if(teamList[i].canHang) {
-						  teamRow += "<td class='alert alert-success'> Yes </td>";
-					  } else {
-						  teamRow += "<td class='alert alert-danger'> Nope</td>";
-					  }
-					  if(teamList[i].flagLevel == "high") {
-						  teamRow += "<td class='alert alert-success'>" + teamList[i].flagTime + " sec. </td>";
-					  } else if(teamList[i].flagLevel == "low") {
-						  teamRow += "<td class='alert alert-warning'>" + teamList[i].flagTime + " sec. </td>";
-					  } else {
-						  teamRow += "<td class='alert alert-danger'> Nope </td>";
-					  }
-					  
-					  teamRow += "</tr>";
-					  document.write(teamRow);
-				  }
-			    </script>
-			  </tbody>
-		  </table>
-		  </div>
-		  <div class="tab-pane" id="L1">
-		  	
-		  </div>
-		  <div class="tab-pane" id="L2">
-		  	
-		  </div>
-		  <div class="tab-pane" id="L3">
-		  	
-		  </div>
-	  </div>
+          <h1 class="text-center"> All Competing Teams</h1>
+          
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs">
+                  <li><a href="#teams" data-toggle="tab">All teams</a></li>
+                  <li><a href="#L1" data-toggle="tab">List 1</a></li>
+                  <li><a href="#L2" data-toggle="tab">List 2</a></li>
+                  <li><a href="#L3" data-toggle="tab">List 3</a></li>
+          </ul>
+          
+          <!-- Tab panes -->
+          <div class="tab-content">
+                  <div class="tab-pane active" id="teams">
+                  <table class="table table-bordered">
+                          <thead>
+                                <tr>
+                                  <th> Team</th>
+                                  <th> Parks on Bridge?</th>
+                                  <th> Detects IR?</th>
+                                  <th> Places Blocks?</th>
+                                  <th> Can Hang?</th>
+                                  <th> Raises Flag?</th>
+                                </tr>
+                          </thead>
+                          <tbody>
+                            <script>
+                                  for(var i=0; i<teamList.length; i++) {
+                                          var teamRow = "<tr>";
+                                          teamRow += "<td> <a href='selectedTeam.html#" + teamList[i].number + "'>";
+                                          teamRow += teamList[i].number + "</a></td>";
+                                          if(teamList[i].canBridge) {
+                                                  teamRow += "<td class='alert alert-success'> Yes </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";
+                                          }
+                                          if(teamList[i].canIr) {
+                                                  teamRow += "<td class='alert alert-success'> Yes </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";
+                                          }
+                                          if(teamList[i].canBasket) {
+                                                  if(teamList[i].basketReliability < 4) {
+                                                        teamRow += "<td class='alert alert-warning'>" + teamList[i].basketReliability + "/5 </td>";
+                                                  } else {
+                                                        teamRow += "<td class='alert alert-success'>" + teamList[i].basketReliability + "/5 </td>";
+                                                  }
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";        
+                                          }
+                                          if(teamList[i].canHang) {
+                                                  teamRow += "<td class='alert alert-success'> Yes </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";
+                                          }
+                                          if(teamList[i].flagLevel == "high") {
+                                                  teamRow += "<td class='alert alert-success'>" + teamList[i].flagTime + " sec. </td>";
+                                          } else if(teamList[i].flagLevel == "low") {
+                                                  teamRow += "<td class='alert alert-warning'>" + teamList[i].flagTime + " sec. </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope </td>";
+                                          }
+                                          
+                                          teamRow += "</tr>";
+                                          document.write(teamRow);
+                                  }
+                            </script>
+                          </tbody>
+                  </table>
+                  </div>
+                  <div class="tab-pane" id="L1">
+					<table class="table table-bordered">
+                          <thead>
+                                <tr>
+                                  <th> Team</th>
+                                  <th> Parks on Bridge?</th>
+                                  <th> Detects IR?</th>
+                                  <th> Places Blocks?</th>
+                                  <th> Can Hang?</th>
+                                  <th> Raises Flag?</th>
+                                </tr>
+                          </thead>
+                          <tbody>
+                            <script>
+                                  for(var i=0; i<teamList.length; i++) {
+                                          var teamRow = "<tr>";
+                                          teamRow += "<td> <a href='selectedTeam.html#" + teamList[i].number + "'>";
+                                          teamRow += teamList[i].number + "</a></td>";
+                                          if(teamList[i].canBridge) {
+                                                  teamRow += "<td class='alert alert-success'> Yes </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";
+                                          }
+                                          if(teamList[i].canIr) {
+                                                  teamRow += "<td class='alert alert-success'> Yes </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";
+                                          }
+                                          if(teamList[i].canBasket) {
+                                                  if(teamList[i].basketReliability < 4) {
+                                                        teamRow += "<td class='alert alert-warning'>" + teamList[i].basketReliability + "/5 </td>";
+                                                  } else {
+                                                        teamRow += "<td class='alert alert-success'>" + teamList[i].basketReliability + "/5 </td>";
+                                                  }
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";        
+                                          }
+                                          if(teamList[i].canHang) {
+                                                  teamRow += "<td class='alert alert-success'> Yes </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";
+                                          }
+                                          if(teamList[i].flagLevel == "high") {
+                                                  teamRow += "<td class='alert alert-success'>" + teamList[i].flagTime + " sec. </td>";
+                                          } else if(teamList[i].flagLevel == "low") {
+                                                  teamRow += "<td class='alert alert-warning'>" + teamList[i].flagTime + " sec. </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope </td>";
+                                          }
+                                          
+                                          teamRow += "</tr>";
+                                          document.write(teamRow);
+                                  }
+                            </script>
+                          </tbody>
+                    </table>
+                  </div>
+                  <div class="tab-pane" id="L2">
+                     <table class="table table-bordered">
+                          <thead>
+                                <tr>
+                                  <th> Team</th>
+                                  <th> Parks on Bridge?</th>
+                                  <th> Detects IR?</th>
+                                  <th> Places Blocks?</th>
+                                  <th> Can Hang?</th>
+                                  <th> Raises Flag?</th>
+                                </tr>
+                          </thead>
+                          <tbody>
+                            <script>
+                                  for(var i=0; i<teamList.length; i++) {
+                                          var teamRow = "<tr>";
+                                          teamRow += "<td> <a href='selectedTeam.html#" + teamList[i].number + "'>";
+                                          teamRow += teamList[i].number + "</a></td>";
+                                          if(teamList[i].canBridge) {
+                                                  teamRow += "<td class='alert alert-success'> Yes </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";
+                                          }
+                                          if(teamList[i].canIr) {
+                                                  teamRow += "<td class='alert alert-success'> Yes </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";
+                                          }
+                                          if(teamList[i].canBasket) {
+                                                  if(teamList[i].basketReliability < 4) {
+                                                        teamRow += "<td class='alert alert-warning'>" + teamList[i].basketReliability + "/5 </td>";
+                                                  } else {
+                                                        teamRow += "<td class='alert alert-success'>" + teamList[i].basketReliability + "/5 </td>";
+                                                  }
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";        
+                                          }
+                                          if(teamList[i].canHang) {
+                                                  teamRow += "<td class='alert alert-success'> Yes </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";
+                                          }
+                                          if(teamList[i].flagLevel == "high") {
+                                                  teamRow += "<td class='alert alert-success'>" + teamList[i].flagTime + " sec. </td>";
+                                          } else if(teamList[i].flagLevel == "low") {
+                                                  teamRow += "<td class='alert alert-warning'>" + teamList[i].flagTime + " sec. </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope </td>";
+                                          }
+                                          
+                                          teamRow += "</tr>";
+                                          document.write(teamRow);
+                                  }
+                            </script>
+                          </tbody>
+                    </table>     
+                  </div>
+                  <div class="tab-pane" id="L3">
+                    <table class="table table-bordered">
+                          <thead>
+                                <tr>
+                                  <th> Team</th>
+                                  <th> Parks on Bridge?</th>
+                                  <th> Detects IR?</th>
+                                  <th> Places Blocks?</th>
+                                  <th> Can Hang?</th>
+                                  <th> Raises Flag?</th>
+                                </tr>
+                          </thead>
+                          <tbody>
+                            <script>
+                                  for(var i=0; i<teamList.length; i++) {
+                                          var teamRow = "<tr>";
+                                          teamRow += "<td> <a href='selectedTeam.html#" + teamList[i].number + "'>";
+                                          teamRow += teamList[i].number + "</a></td>";
+                                          if(teamList[i].canBridge) {
+                                                  teamRow += "<td class='alert alert-success'> Yes </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";
+                                          }
+                                          if(teamList[i].canIr) {
+                                                  teamRow += "<td class='alert alert-success'> Yes </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";
+                                          }
+                                          if(teamList[i].canBasket) {
+                                                  if(teamList[i].basketReliability < 4) {
+                                                        teamRow += "<td class='alert alert-warning'>" + teamList[i].basketReliability + "/5 </td>";
+                                                  } else {
+                                                        teamRow += "<td class='alert alert-success'>" + teamList[i].basketReliability + "/5 </td>";
+                                                  }
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";        
+                                          }
+                                          if(teamList[i].canHang) {
+                                                  teamRow += "<td class='alert alert-success'> Yes </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope</td>";
+                                          }
+                                          if(teamList[i].flagLevel == "high") {
+                                                  teamRow += "<td class='alert alert-success'>" + teamList[i].flagTime + " sec. </td>";
+                                          } else if(teamList[i].flagLevel == "low") {
+                                                  teamRow += "<td class='alert alert-warning'>" + teamList[i].flagTime + " sec. </td>";
+                                          } else {
+                                                  teamRow += "<td class='alert alert-danger'> Nope </td>";
+                                          }
+                                          
+                                          teamRow += "</tr>";
+                                          document.write(teamRow);
+                                  }
+                            </script>
+                          </tbody>
+                    </table>      
+                  </div>
+          </div>
   </div>
   <div class="container" id ="empty" style="margin-bottom:1000px">&nbsp;
   </div>
