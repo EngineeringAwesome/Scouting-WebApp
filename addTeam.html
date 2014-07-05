@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script src="js/localStorageAccess.js"></script>
+  <script src="js/navbar.js"></script>
+  <script>	
+    var hasWebStorage = checkForLocalStorage();
+    var teamList = getTeamList(hasWebStorage);
+    console.log(teamList);
+    var pageName = getPageName();
+
+    function submitTeamData() {
+  	tempTeam = new Object();
+  	tempTeam.name = document.getElementsByName("name")[0].value;
+  	tempTeam.number = document.getElementsByName("number")[0].value;
+  	tempTeam.org = document.getElementsByName("org")[0].value;
+  	tempTeam.city = document.getElementsByName("city")[0].value;
+  	tempTeam.state = document.getElementsByName("state")[0].value;
+  	tempTeam.country = document.getElementsByName("country")[0].value;
+    	tempTeam.canIr = document.getElementsByName("canIr")[0].checked;
+    	tempTeam.canBridge = document.getElementsByName("canBridge")[0].checked;
+    	tempTeam.canBasket = document.getElementsByName("canBasket")[0].checked;
+    	tempTeam.basketReliability = document.getElementsByName("basketReliability")[0].value;
+    	tempTeam.canHang = document.getElementsByName("canHang")[0].checked;
+    	tempTeam.flagLevel = document.getElementsByName("flagLevel")[0].value;
+    	tempTeam.flagTime = document.getElementsByName("flagTime")[0].value;
+    	tempTeam.notes = document.getElementsByName("notes")[0].value;
+		
+    	teamList.push(tempTeam);
+    	console.log(teamList);
+    	storeTeamList(hasWebStorage, teamList);
+    	location.href = 'teams.html';
+    }
+  </script>
+	
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shorcut icon" href="assets/ico/favicon.png">
+        
+  <title> Add a Team</title>
+	
+  <!-- Bootstrap Core Css -->
+  <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+  <style> body { padding-top: 50px;} </style>
+</head>
+<body>
+  <script> displayNavbar(pageName);</script>
+  
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Add a team to the list</h1>
+    </div>
+    <h2 class="page-header"> Team info </h2>
+    <form role="form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Team name">
+      </div>
+      <div class="form-group">
+      	<label for="number">Number</label>
+      	<input type="number" class="form-control" name="number" placeholder="Team number" required required="required">
+      </div>
+      <div class="form-group">
+      	<label for="org">School / Organization</label>
+      	<input type="text" class="form-control" name="org" placeholder="Team School/Organization">
+      </div>
+      <div class="form-group">
+      	<label for="city">City</label>
+      	<input type="text" class="form-control" name="city" placeholder="Team City">
+      </div>
+      <div class="form-group">
+      	<label for="state">State</label>
+      	<input type="text" class="form-control" name="state" placeholder="Team State">
+      </div>
+      <div class="form-group">
+      	<label for="country">Country</label>
+      	<input type="text" class="form-control" name="country" placeholder="Team Country">
+      </div>
+    </form>
+    
+    <h2 class="page-header"> Autonomous Info</h2>
+    <form role="form">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="canIr">
+      	  Detects IR Beacon?
+        </label>
+      </div>
+      <div class="checkbox">
+      	<label>
+      	  <input type="checkbox" name="canBridge">
+      	  Can park on bridge?
+      	</label>
+      </div>
+    </form>
+    
+    <h2 class="page-header"> Teleop Info</h2>
+    <form role="form">
+    	<div class="checkbox">
+    	  <label>
+		    <input type="checkbox" name="canBasket">
+		    Can place blocks in the basket?
+		  </label>
+		</div>
+		<div class="form-group">
+		  <label for="basketReliability">
+            <input type="number" class="form-control" name="basketReliability" placeholder="Placing Reliability (1-5)">
+		  </label>
+		</div>
+    </form>
+    
+    <h2 class="page-header"> End Game Info </h2>
+    <form role="form">
+      <div class="checkbox">
+      	<label>
+      	  <input type="checkbox" name="canHang">
+      	  Can Hang at the end?
+      	</label>
+      </div>
+      <div class="">
+      	<label for="flagLevel">Flag Level</label>
+      	<select name="flagLevel">
+          <option value=false> Doesn't Raise</option>
+          <option value="low"> Low Raise</option>
+          <option value="high"> High Raise</option>
+      	</select>
+      </div>
+      <div class="form-group">
+      	<label for="number">Flag Raise Time</label>
+      	<input type="number" class="form-control" name="flagTime" placeholder="Flag Raise Time">
+      </div>
+    </form>
+    
+    <h2 class="page-header"> Notes: </h2>
+    <form role="form" style="margin-bottom: 50px">
+    	<textarea class="form-control" name="notes" rows="3"></textarea>
+    </form>
+    
+    <button type="button" class="btn btn-primary" onclick="submitTeamData()">Add Team</button>
+  </div>
+  
+  <div class="container" id ="empty" style="margin-bottom:1000px">&nbsp;
+  </div>
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="dist/js/bootstrap.min.js"></script>
+</body>
+</html>

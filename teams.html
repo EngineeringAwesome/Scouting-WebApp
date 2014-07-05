@@ -1,18 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="js/localStorageAccess.js"></script>
+  <script src="js/navbar.js"></script>
+  <script> 
+	var hasWebStorage = checkForLocalStorage();
+	var teamList = getTeamList(hasWebStorage);
+	var pageName = getPageName();
+  </script>
+  
+  <script>
+	function displayTeamList() {
+		for(var i=0; i<teamList.length; i++) {
+			var teamDiv = "<div class='col-4 col-sm-4 col-lg-4' onclick='goToSelectedTeam("+teamList[i].number+")'>";
+			teamDiv += "<div class='thumbnail text-center'>"
+			teamDiv += "<h2>" + teamList[i].name + ", " + teamList[i].number + "</h2>";
+			teamDiv += "<p> brief info on this team </p>";
+			teamDiv += "</div></div>";
+			document.write(teamDiv);
+		  }
+	}
+	function goToSelectedTeam(teamNumber) {
+		localStorage.setItem('selectedTeamNumber', teamNumber);
+		location.href = 'selectedTeam.html' + '#' + teamNumber;
+	}
+  </script>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shorcut icon" href="assets/ico/favicon.png">
+  
   <title> team info </title>
+  
+  <!-- Bootstrap Core Css -->
+  <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+  <style> body {padding-top:50px;} </style>
 </head>
 
 <body>
-  <h1> Team Information</h1>
-  <p> contains team information throughout the day </p>
-  <p> Feature list: </p>
-  <p> Set fields for useful scouting information </p>
-  <p> Read a list of attending teams from a local database, file, or array</p>
-  <p> take multiple pictures of robots and save to device as "team####a, team####b, etc </p>
+  <script> displayNavbar(pageName);</script>
+  
+  <div class="container">
+    <div class="jumbotron">
+    	<h1>Competing Teams</h1>
+    	<a href="addTeam.html" class="btn btn-default btn-sm">
+    	    <span class="glyphicon glyphicon-plus"></span>
+    	     Add a team</a>
+    </div>
+    <div class="row">
+    	<!-- add teams here -->
+    	<script> displayTeamList();</script>
+    </div>
+    <a href="addTeam.html" class="btn btn-default btn-sm" style="margin-top:25px;">
+    	    <span class="glyphicon glyphicon-plus"></span>
+    	     Add a team</a>
+  </div>
+  
+  <div class="container" id ="empty" style="margin-bottom:1000px">&nbsp;
+  </div>
+  
+
+<!--  <div class="appBackgroundGradient"></div>
+  <div class="appBackground">
+	  
+	<div id="jsError"> <h1> Please Check the console for errors </h1></div>
+	<script> if(hasWebStorage) {document.getElementById("jsError").style.display="none";} </script>
+	
+    <div class="appHeader">
+		<a href="addTeam.html">Add a team</a>
+    </div>
+    <div class="appCenter">
+			 
+		<script> displayTeamList();</script>
+ 
+    	<div class="appOption" style="height: 100%">	
+        <h1> Team Information</h1>
+  			<p> contains team information throughout the day </p>
+  			<p> Feature list: </p>
+  			<p> Set fields for useful scouting information </p>
+  			<p> Read a list of attending teams from a local database, file, or array</p>
+  			<p> take multiple pictures of robots and save to device as "team####a, team####b, etc </p>
+      </div>
+    </div>
+    <div class="appFooter"></div>
+  </div> -->
+  <script src="assets/js/jquery.js"></script>
+  <script src="dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -87,6 +87,7 @@ div.appAddTeam  p {
 
 #jsError {
   background-color:red;
+>>>>>>> gh-pages
 }
 
 body {
@@ -96,8 +97,12 @@ body {
   width:100%;
   height:100%;
   overflow:hidden;
+<<<<<<< HEAD
+  font-size:100%;
+=======
   font-size: 5vh;
   font-family:"arial", sans-serif;
+>>>>>>> gh-pages
 }
 
 h1 {

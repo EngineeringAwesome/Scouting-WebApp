@@ -1,14 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shorcut icon" href="assets/ico/favicon.png">
+  
   <title> Scouting App </title>
+  
+  <!-- Bootstrap Core Css -->
+  <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+  <style> body { padding-top:50px;} </style>
+  
+  <script src="js/navbar.js"></script>
+  <script>
+    var pageName = getPageName();
+  </script>
   
 </head>
 
 <body>
+  <script> displayNavbar(pageName);</script>
 
+  <div class="container">
+	<div class="jumbotron">
+		<h2> FTC scouting app</h2>
+		<p> An FTC scouting application that runs off of HTML5, CSS3, and Javascript to be device agnostic and cross-platform</p>
+		<p> Select the teams tab to view and add teams</p>
+	</div>
+  </div>
+  
+  <div class="container" id ="empty" style="margin-bottom:1000px">&nbsp;
+  </div>
+  <!-- OLD CODE
+  <div class="appBackgroundGradient"></div>
   <div class="appBackground">
     <div class="appHeader"></div>
     <div class="appCenter">
@@ -26,7 +53,11 @@
           <span class="appOptionText"> Field Map </span> </div>
     </div>
     <div class="appFooter"></div>
-  </div>
+  </div> -->
+  
+  <script src="assets/js/jquery.js"></script>
+  <script src="dist/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

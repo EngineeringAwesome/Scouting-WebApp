@@ -1,18 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shorcut icon" href="assets/ico/favicon.png">
+
   <title> Settings </title>
+  
+  <!-- Bootstrap Core Css -->
+  <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+  <style> body { padding-top: 50px;} </style>
+  
+  <script src="js/navbar.js"></script>
+  <script>
+    var pageName = getPageName();
+  </script>
+  
 </head>
 
 <body>
-  <h1> App Settings </h1>
-  <p> this will contain app settings, and ability to read from databases <p>
-  <p> Feature list: </p>
-  <p> Read data from the Yellow Alliance </p>
-  <p> Read data from a database of teams at the competition</p>
-  <p> Add a link to the Rankings webpage </p>
+  <script> displayNavbar(pageName);</script>
+  
+  <div class="container">
+   <h1>App Settings</h1>
+   <a href="clearData.html">Clear Data</a>
+  </div>
+  
+  <div class="container" id ="empty" style="margin-bottom:1000px">&nbsp;
+  </div>
+
+<!--<div class='appBackgroundGradient'></div>
+  <div class='appBackground'>	
+    <div class='appHeader'>
+      <a href="clearData.html">Clear Data</a>
+    </div>
+    <div class='appCenter'>  
+	  <h1> App Settings </h1>
+	  <p> this will contain app settings, and ability to read from databases <p>
+	  <p> Feature list: </p>
+	  <p> Read data from the Yellow Alliance </p>
+	  <p> Read data from a database of teams at the competition</p>
+	  <p> Add a link to the Rankings webpage </p>
+	</div>
+	<div class='appFooter'></div> 
+  </div>-->
+  <script src="assets/js/jquery.js"></script>
+  <script src="dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
